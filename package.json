@@ -5,8 +5,8 @@
   "author": "Kaetokid KuroRyu",
   "main": "bot.js",
   "scripts": {
-                "start": "node bot.js"
-             }
+     "start": "node bot.js"
+             },
   "dependencies": {
     "discord.io": "11.1.0",
   }
