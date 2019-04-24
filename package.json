@@ -1,13 +1,14 @@
 {
   "name": "FFXIV Hunting-Bot",
-  "version": "1.0.0",
   "description": "---",
-  "author": "Kaetokid KuroRyu",
+  "version": "1.0.0",
+  "author": "Kaetokid Kuroryu",
   "main": "bot.js",
   "scripts": {
-     "start": "node bot.js"
-             },
+    "start": "node bot.js"
+  },
   "dependencies": {
     "discord.js": "11.1.0",
+    "request": "2.81.0"
   }
 }
