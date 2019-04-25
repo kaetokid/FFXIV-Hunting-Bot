@@ -20,7 +20,6 @@ client.on('message', message => {
         switch(cmd) {
             case 'Zentrales Thanalan':
                 client.sendMessage({
-                    to: channelID,
                     message: 'Central Thanalan'
                 });
 			break;
