@@ -5,12 +5,10 @@ client.on('ready', () => {
     console.log('Online');
 });
 
-client.on('message', message => {
-    if (message.content === 'ping') {
-    	client.sendMessage{(
-		message: 'pong'
-	});
-    }
+client.on("message", function(message) {
+   if(message.content === "ping") {
+	   message.channel.send('pong');
+   }
 });
 
 
