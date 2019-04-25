@@ -34,7 +34,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Nördliches Thanalan")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(19,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -54,7 +54,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Westliches Thanalan")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(19,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -64,7 +64,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Südwald")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(7,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -74,7 +74,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Nordwald")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(8,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -84,7 +84,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Ostwald")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(7,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -94,7 +94,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Tiefer Wald")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(11,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -104,7 +104,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Westliches La Noscea")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(20,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -114,7 +114,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Oberes La Noscea")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(16,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -124,7 +124,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Äußeres La Noscea")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(17,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -134,7 +134,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Zentrales La Noscea")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(19,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -144,7 +144,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Unteres La Noscea")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(17,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -154,7 +154,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Östliches La Noscea")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(19,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -164,7 +164,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Zentrales Hochland von Coerthas")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(31,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -174,7 +174,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Westliches Hochland von Coerthas")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(32,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -184,7 +184,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Wallende Nebel")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(14,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -194,7 +194,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Dravanisches Hinterland")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(23,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -204,7 +204,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Dravanisches Vorland")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(20,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -214,7 +214,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Abalathisches Wolkenmeer")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(24,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -224,7 +224,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Rubinsee")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(8,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -234,7 +234,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Die Zinnen")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(10,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -244,7 +244,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Das Fenn")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(8,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
@@ -254,7 +254,7 @@ bot.on("message", area => {
 	}
 	
 	else if (area.content.startsWith("Abanisches Grenzland")) {
-		const coord = area.content.slice(18,area.length);
+		const coord = area.content.slice(20,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
