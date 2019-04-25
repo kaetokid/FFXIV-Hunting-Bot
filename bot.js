@@ -12,5 +12,5 @@ client.on('message', msg => {
   	}
 });
 
-// THIS  MUST  BE  THIS  WAY
+
 client.login(BOT_TOKEN).catch(err => console.log(err));
