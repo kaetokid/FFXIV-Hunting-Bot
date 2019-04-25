@@ -17,14 +17,7 @@ bot.on("message", area => {
 		const coord = area.content.slice(18,area.length);
 		
 		let user = area.author;
-		user = user.toString();
-		if (user.includes("!")) {
-			user = user.split("!")[1].split(">")[0];
-		}
-		else {
-			user = user.split("@")[1].split(">")[0];
-		}
-		bot.users.get(user).username
+		message.channel.server.detailsOf(area.author).nick
 		
 		console.log("user: " + user);
 		area.delete();
