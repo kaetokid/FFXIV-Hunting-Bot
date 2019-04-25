@@ -1,15 +1,23 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const bot = new Discord.Client();
 
-client.on('ready', () => {
+bot.on('ready', () => {
     console.log('Online');
 });
 
-client.on("message", function(message) {
-   if (message.content.startsWith("ping ")) {	
-	   message.channel.send('pong');
-   }
-});
 
+//bot.on("message", function(message) {
+//   if (message.content.startsWith("Zentrales Thanalan ")) {	
+//	   message.channel.send('Central Thanalan');
+//   }
+//});
+
+bot.on("message", area => {
+	const coord = "";
+	if (area.content.startsWith("Zentrales Thanalan ")) {
+		coord = area.content.slice(area.length).split(/ +/);
+		area.channel.send("Central Thanalan ${coord}" );
+	}	
+});
 
 client.login(process.env.BOT_TOKEN);
