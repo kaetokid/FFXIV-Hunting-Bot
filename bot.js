@@ -21,7 +21,7 @@ client.on('message', function (user, userID, channelID, message, evt) {
         args = args.splice(1);
         switch(cmd) {
             case 'Zentrales Thanalan':
-                bot.sendMessage({
+                client.sendMessage({
                     to: channelID,
                     message: 'Central Thanalan'
                 });
