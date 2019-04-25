@@ -11,9 +11,7 @@ client.on('message', msg => {
   	}
 });
 
-client.on('message', function (user, userID, channelID, message, evt) {
-    // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `#`
+client.on('message', message => {
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split('!');
         var cmd = args[0];
@@ -21,12 +19,13 @@ client.on('message', function (user, userID, channelID, message, evt) {
         args = args.splice(1);
         switch(cmd) {
             case 'Zentrales Thanalan':
-                client.sendMessage({
+                bot.sendMessage({
                     to: channelID,
                     message: 'Central Thanalan'
                 });
+			break;
         }
-   }
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
