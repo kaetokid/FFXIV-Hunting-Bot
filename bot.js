@@ -14,8 +14,7 @@ bot.on('ready', () => {
 
 bot.on("message", area => {
 	if (area.content.startsWith("Zentrales Thanalan")) {
-		//const coord = area.content.slice(18,area.length);
-		const coord = area.content.slice(2,area.length);
+		const coord = area.content.slice(18,area.length);
 		area.channel.send("Central Thanalan " + coord);
 		console.log("String: " + coord);
 	}		
