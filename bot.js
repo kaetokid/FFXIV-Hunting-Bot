@@ -17,7 +17,7 @@ bot.on("message", area => {
 		const coord = area.content.slice(18,area.length);
 		
 		let user = area.author;
-		message.channel.server.detailsOf(area.author).nick
+		area.channel.server.detailsOf(area.author).nick
 		
 		console.log("user: " + user);
 		area.delete();
