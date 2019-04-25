@@ -17,9 +17,19 @@ bot.on("message", area => {
 		const coord = area.content.slice(18,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
-		console.log("user: " + user);
+		//console.log("user: " + user);
 		area.delete();
 		area.channel.send(user + ": Central Thanalan " + coord);
+		//console.log("coord: " + coord);
+	}
+	
+	else if (area.content.startsWith("Östliches Thanalan")) {
+		const coord = area.content.slice(18,area.length);
+		
+		let user = area.guild.members.get(area.author.id).displayName;
+		//console.log("user: " + user);
+		area.delete();
+		area.channel.send(user + ": Eastern Thanalan " + coord);
 		//console.log("coord: " + coord);
 	}
 });
