@@ -15,7 +15,17 @@ bot.on('ready', () => {
 bot.on("message", area => {
 	if (area.content.startsWith("Zentrales Thanalan")) {
 		const coord = area.content.slice(18,area.length);
+		
 		let user = area.author;
+		user = user.toString();
+		if (user.includes("!")) {
+			user = user.split("!")[1].split(">")[0];
+		}
+		else {
+			user = user.split("@")[1].split(">")[0];
+		}
+		client.users.get(user).username
+		
 		console.log("user: " + user);
 		area.delete();
 		area.channel.send(user + ": Central Thanalan " + coord);
