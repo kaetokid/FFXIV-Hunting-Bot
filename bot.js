@@ -16,9 +16,7 @@ bot.on("message", area => {
 	if (area.content.startsWith("Zentrales Thanalan")) {
 		const coord = area.content.slice(18,area.length);
 		
-		let user = area.author;
-		area.channel.server.detailsOf(area.author).nick
-		
+		let user = area.author.nick;
 		console.log("user: " + user);
 		area.delete();
 		area.channel.send(user + ": Central Thanalan " + coord);
