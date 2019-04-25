@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 bot.on('ready', () => {
-    console.log('${bot.user.tag} is Online');
+    console.log(bot.user.tag " is Online");
 });
 
 
@@ -14,7 +14,7 @@ bot.on('ready', () => {
 
 bot.on("message", area => {
 	if (area.content.startsWith("Zentrales Thanalan")) {
-		const coord = area.content.slice(area.length).split(/ +/);
+		const coord = area.content.splice(area.length).split(/ +/);
 		area.channel.send("Central Thanalan " + coord);
 		console.log("String: " + coord);
 	}		
