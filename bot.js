@@ -13,9 +13,8 @@ bot.on('ready', () => {
 //});
 
 bot.on("message", area => {
-	const coord = "";
-	if (area.content.startsWith("Zentrales Thanalan ")) {
-		coord = area.content.slice(area.length).split(/ +/);
+	if (area.content.startsWith("Zentrales Thanalan")) {
+		const coord = area.content.slice(area.length).split(/ +/);
 		area.channel.send("Central Thanalan ${coord}" );
 	}	
 });
