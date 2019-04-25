@@ -5,8 +5,8 @@ client.on('ready', () => {
     console.log('Online');
 });
 
-client.on('message', msg => {
-    if (msg.content === 'ping') {
+client.on('message', message => {
+    if (message.content === 'ping') {
     	client.sendMessage{(
 		message: 'pong'
 	});
