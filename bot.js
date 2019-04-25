@@ -24,7 +24,7 @@ bot.on("message", area => {
 		else {
 			user = user.split("@")[1].split(">")[0];
 		}
-		client.users.get(user).username
+		bot.users.get(user).username
 		
 		console.log("user: " + user);
 		area.delete();
