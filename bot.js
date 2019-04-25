@@ -16,7 +16,7 @@ bot.on("message", area => {
 	if (area.content.startsWith("Zentrales Thanalan")) {
 		const coord = area.content.slice(18,area.length);
 		area.delete(1000);
-		area.channel.send(user.tag + ": Central Thanalan " + coord);
+		area.channel.send(user.mention + ": Central Thanalan " + coord);
 		//console.log("String: " + coord);
 	}		
 });
