@@ -14,23 +14,37 @@ bot.on('ready', () => {
 
 bot.on("message", report => {
 	if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central")) {
-		//const coord = report.content.slice(18,report.length);
 		if(report.author.bot) return; 
 		
 		let user = report.guild.members.get(report.author.id).displayName;
-		//console.log("user: " + user);
-		let edit_en = report.content.replace((/Zentrales Thanalan/gi && /Thanalan central/gi), "Central Thanalan");
-		//console.log("edit_en 1: " + edit_en);
-		//console.log("report.content 1: " + report.content);
-		let edit_de = report.content.replace((/Central Thanalan/gi && /Thanalan central/gi), "Zentrales Thanalan");
-		//console.log("edit_de: " + edit_de);
-		//console.log("report.content 2: " + report.content);
-		let edit_fr = report.content.replace((/Central Thanalan/gi && /Zentrales Thanalan/gi), "Thanalan central");
-		//console.log("edit_fr: " + edit_fr);
-		//console.log("report.content 3: " + report.content);
+		let edit_en = "";
+		let edit_de = "";
+		let edit_fr = "";
+		
+		if (report.content.includes("Zentrales Thanalan"))
+			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
+		else if (report.content.includes("Thanalan central"))
+			edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
+		else
+			edit_en = report.content;
+			
+			
+		if (report.content.includes("Central Thanalan"))
+			edit_de = report.content.replace(/Zentrales Thanalan/gi, "Zentrales Thanalan");
+		else if (report.content.includes("Thanalan central"))
+			edit_de = report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
+		else
+			edit_de = report.content;
+			
+		if (report.content.includes("Central Thanalan"))
+			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
+		else if (report.content.includes("Zentrales Thanalan"))
+			edit_en = report.content.replace(/Thanalan central/gi, "Thanalan central");
+		else
+			edit_en = report.content;
+			
 		report.delete();
 		report.channel.send("```" + user + ":\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
-		//console.log("coord: " + coord);
 	}
 	
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
