@@ -23,6 +23,7 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb::flag_de:flag_fr: " + report.content)
 			.setColor(0xFF0000)
+		report.channel.send({embed});
 		
 		report.delete();
 	}
@@ -64,7 +65,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 	
@@ -105,7 +105,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -146,7 +145,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -187,7 +185,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -228,7 +225,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -269,7 +265,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -310,7 +305,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -351,7 +345,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -392,7 +385,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -433,7 +425,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -474,7 +465,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -515,7 +505,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -556,7 +545,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -597,7 +585,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -638,7 +625,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -679,7 +665,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -720,7 +705,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -761,7 +745,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -802,7 +785,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -843,7 +825,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -884,7 +865,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -925,7 +905,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -966,7 +945,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -1007,7 +985,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -1048,7 +1025,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 
@@ -1089,7 +1065,6 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		
 		report.channel.send({embed});
 	}
 });
