@@ -13,13 +13,18 @@ bot.on('ready', () => {
 //});
 
 bot.on("message", report => {
+
+	let user = "";
+	let edit_en = "";
+	let edit_de = "";
+	let edit_fr = "";
+	
+	
 	if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central")) {
 		if(report.author.bot) return; 
 		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+		user = report.guild.members.get(report.author.id).displayName;
+
 		
 		if (report.content.includes("Zentrales Thanalan"))
 			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
@@ -51,7 +56,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
 		const coord = report.content.slice(18,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Eastern Thanalan " + coord);
 	}
@@ -59,7 +64,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Nördliches Thanalan" || "Thanalan septentrional")) {
 		const coord = report.content.slice(19,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Northern Thanalan " + coord);
 	}
@@ -67,7 +72,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Südliches Thanalan" || "Thanalan méridional")) {
 		const coord = report.content.slice(18,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Southern Thanalan " + coord);
 	}
@@ -75,7 +80,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Westliches Thanalan" || "Thanalan occidental")) {
 		const coord = report.content.slice(19,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Western Thanalan " + coord);
 	}
@@ -83,7 +88,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Südwald" || "Forêt du sud")) {
 		const coord = report.content.slice(7,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": South Shroud " + coord);
 	}
@@ -91,7 +96,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Nordwald" || "Forêt du nord")) {
 		const coord = report.content.slice(8,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": North Shroud " + coord);
 	}
@@ -99,7 +104,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Ostwald" || "Forêt de l'est")) {
 		const coord = report.content.slice(7,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": East Shroud " + coord);
 	}
@@ -107,7 +112,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Tiefer Wald" || "Forêt centrale")) {
 		const coord = report.content.slice(11,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Central Shroud " + coord);
 	}
@@ -115,7 +120,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Westliches La Noscea" || "Noscea occidentale")) {
 		const coord = report.content.slice(20,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Western La Noscea " + coord);
 	}
@@ -123,7 +128,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Oberes La Noscea" || "Haute-Noscea")) {
 		const coord = report.content.slice(16,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Upper La Noscea " + coord);
 	}
@@ -131,7 +136,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Äußeres La Noscea" || "Noscea extérieure")) {
 		const coord = report.content.slice(17,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Outer La Noscea " + coord);
 	}
@@ -139,7 +144,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Zentrales La Noscea" || "Noscea centrale")) {
 		const coord = report.content.slice(19,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Middle La Noscea " + coord);
 	}
@@ -147,7 +152,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Unteres La Noscea" || "Basse-Noscea")) {
 		const coord = report.content.slice(17,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Lower La Noscea " + coord);
 	}
@@ -155,7 +160,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Östliches La Noscea" || "Noscea orientale")) {
 		const coord = report.content.slice(19,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Eastern La Noscea " + coord);
 	}
@@ -163,7 +168,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Zentrales Hochland von Coerthas" || "Hautes terres du Coerthas central")) {
 		const coord = report.content.slice(31,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Coerthas Central Highlands " + coord);
 	}
@@ -171,7 +176,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Westliches Hochland von Coerthas" || "Hautes terres du Coerthas occidental")) {
 		const coord = report.content.slice(32,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": Coerthas Western Highlands " + coord);
 	}
@@ -179,7 +184,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Wallende Nebel" || "L'Écume des cieux de Dravania")) {
 		const coord = report.content.slice(14,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Churning Mists " + coord);
 	}
@@ -187,7 +192,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Dravanisches Hinterland" || "Arrière-pays dravanien")) {
 		const coord = report.content.slice(23,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Dravanian Hinterlands " + coord);
 	}
@@ -195,7 +200,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Dravanisches Vorland" || "Avant-pays dravanien")) {
 		const coord = report.content.slice(20,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Dravanian Forelands " + coord);
 	}
@@ -203,7 +208,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Abalathisches Wolkenmeer" || "L'Écume des cieux d'Abalathia")) {
 		const coord = report.content.slice(24,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Sea of Clouds " + coord);
 	}
@@ -211,7 +216,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Rubinsee" || "Mer de Rubis")) {
 		const coord = report.content.slice(8,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Ruby Sea " + coord);
 	}
@@ -219,7 +224,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Azim-Steppe" || "Steppe d'Azim")) {
 		const coord = report.content.slice(8,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Azim Steppe " + coord);
 	}
@@ -227,7 +232,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Die Zinnen" || "Les Pics")) {
 		const coord = report.content.slice(10,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Peaks " + coord);
 	}
@@ -235,7 +240,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Das Fenn" || "Les Lacs")) {
 		const coord = report.content.slice(8,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Lochs " + coord);
 	}
@@ -243,7 +248,7 @@ bot.on("message", report => {
 	else if (report.content.startsWith("Abanisches Grenzland" || "Les Marges")) {
 		const coord = report.content.slice(20,report.length);
 		
-		let user = report.guild.members.get(report.author.id).displayName;
+		user = report.guild.members.get(report.author.id).displayName;
 		report.delete();
 		report.channel.send(user + ": The Fringes " + coord);
 	}
