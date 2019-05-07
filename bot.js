@@ -19,7 +19,7 @@ bot.on("message", report => {
 		
 		let user = report.guild.members.get(report.author.id).displayName;
 		//console.log("user: " + user);
-		let edit_en = report.content.replace((/Zentrales Thanalan/gi , /Thanalan central/gi), "Central Thanalan");
+		let edit_en = report.content.replace((/Zentrales Thanalan/gi || /Thanalan central/gi), "Central Thanalan");
 		console.log("edit_en 1: " + edit_en);
 		//console.log("report.content 1: " + report.content);
 			//edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
