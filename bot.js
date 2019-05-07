@@ -13,7 +13,7 @@ bot.on('ready', () => {
 //});
 
 bot.on("message", report => {
-	if (report.content.includes("Central Thanalan" || "Zentrales Thanalan" || "Thanalan central")) {
+	if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central")) {
 		//const coord = report.content.slice(18,report.length);
 		if(report.author.bot) return; 
 		
@@ -23,7 +23,7 @@ bot.on("message", report => {
 		let edit_fr = report.content.replace(/Central Thanalan/gi || /Zentrales Thanalan/gi, "Thanalan central");
 		//console.log("user: " + user);
 		report.delete();
-		report.channel.send("```" + user + ":\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
+		report.channel.send("```" + "${report.author.username}:\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
 		//console.log("coord: " + coord);
 	}
 	
