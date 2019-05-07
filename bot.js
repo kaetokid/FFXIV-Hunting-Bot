@@ -44,7 +44,7 @@ bot.on("message", report => {
 			edit_fr = ":flag_fr: " + report.content;
 			
 		report.delete();
-		report.channel.sendEmbed(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
+		report.channel.sendEmbed(embed, user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
 	}
 	
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
