@@ -49,9 +49,9 @@ bot.on("message", report => {
 		report.delete();
 		
 		var embed = new Discord.RichEmbed()
-		.setAuthor(user)
-		.addField("Hunt Found 2",":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
-		.setColor(0xFF0000)
+			.setTitle("Hunt found!")
+			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
+			.setColor(0xFF0000)
 		
 		report.channel.send({embed});
 	}
