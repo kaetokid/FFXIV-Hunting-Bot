@@ -19,7 +19,7 @@ bot.on("message", area => {
 		let user = area.guild.members.get(area.author.id).displayName;
 		//console.log("user: " + user);
 		area.delete();
-		area.channel.send("```" + user +":" + "\n Central Thanalan " + coord + "\n Zentrales Thanalan " + coord + "\n Thanalan central " + coord + "```");
+		area.channel.send("```" + user + ":" + "\n Central Thanalan " + coord + "\n Zentrales Thanalan " + coord + "\n Thanalan central " + coord + "```");
 		//console.log("coord: " + coord);
 	}
 	
