@@ -20,6 +20,7 @@ bot.on("message", report => {
 		let user = report.guild.members.get(report.author.id).displayName;
 		
 		var embed = new Discord.RichEmbed()
+			.addField("@here")
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb::flag_de::flag_fr: " + report.content)
 			.setColor(0xFF0000)
