@@ -15,7 +15,7 @@ bot.on('ready', () => {
 bot.on("message", report => {
 	if (report.content.includes("Central Thanalan" || "Zentrales Thanalan" || "Thanalan central")) {
 		//const coord = report.content.slice(18,report.length);
-		if(message.author.bot) return; 
+		if(report.author.bot) return; 
 		
 		let user = report.guild.members.get(report.author.id).displayName;
 		let edit_en = report.content.replace(/Zentrales Thanalan/gi || /Thanalan central/gi, "Central Thanalan");
