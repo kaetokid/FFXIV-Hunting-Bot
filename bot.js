@@ -258,7 +258,7 @@ bot.on("message", report => {
 		.addField(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
 		.setColor(0xFF0000)
 		.setFooter("")
-	report.channel.send({embed});
+	//report.channel.send({embed});
 });
 
 bot.login(process.env.BOT_TOKEN);
