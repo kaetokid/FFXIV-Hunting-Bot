@@ -19,29 +19,31 @@ bot.on("message", report => {
 		if(report.author.bot) return; 
 		
 		let user = report.guild.members.get(report.author.id).displayName;
-
+		let edit_en = "";
+		let edit_de = "";
+		let edit_fr = "";
 		
 		if (report.content.includes("Zentrales Thanalan"))
-			let edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
+			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
 		else if (report.content.includes("Thanalan central"))
-			let edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
+			edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
 		else
-			let edit_en = report.content;
+			edit_en = report.content;
 			
 			
 		if (report.content.includes("Central Thanalan"))
-			let edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
+			edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
 		else if (report.content.includes("Thanalan central"))
-			let edit_de = report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
+			edit_de = report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
 		else
-			let edit_de = report.content;
+			edit_de = report.content;
 			
 		if (report.content.includes("Central Thanalan"))
-			let edit_fr = report.content.replace(/Central Thanalan/gi, "Thanalan central");
+			edit_fr = report.content.replace(/Central Thanalan/gi, "Thanalan central");
 		else if (report.content.includes("Zentrales Thanalan"))
-			let edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
+			edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
 		else
-			let edit_fr = report.content;
+			edit_fr = report.content;
 			
 			
 		report.delete();
@@ -52,12 +54,6 @@ bot.on("message", report => {
 		.setColor(0xFF0000)
 		
 		report.channel.send({embed});
-		
-		
-		user = "";
-		edit_en = "";
-		edit_de = "";
-		edit_fr = "";
 	}
 	
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
