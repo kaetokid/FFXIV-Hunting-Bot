@@ -50,7 +50,14 @@ bot.on("message", report => {
 			
 			
 		report.delete();
-		//report.channel.send(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
+		
+		var embed = new Discord.RichEmbed()
+		.setTitle("Hunt Found")
+		.setAuthor(user)
+		.addField("",":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
+		.setColor(0xFF0000)
+		
+		report.channel.send({embed});
 	}
 	
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
@@ -252,13 +259,6 @@ bot.on("message", report => {
 		report.delete();
 		report.channel.send(user + ": The Fringes " + coord);
 	}
-	
-	
-	var embed = new Discord.RichEmbed()
-		.addField(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
-		.setColor(0xFF0000)
-		.setFooter("")
-	//report.channel.send({embed});
 });
 
 bot.login(process.env.BOT_TOKEN);
