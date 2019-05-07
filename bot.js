@@ -12,15 +12,18 @@ bot.on('ready', () => {
 //   }
 //});
 
-bot.on("message", area => {
-	if (area.content.includes("Zentrales Thanalan" || "Thanalan central")) {
-		const coord = area.content.slice(18,area.length);
+bot.on("message", report => {
+	if (report.content.includes("Central Thanalan" || "Zentrales Thanalan" || "Thanalan central")) {
+		//const coord = report.content.slice(18,report.length);
+		if(message.author.bot) return; 
 		
-		let user = area.guild.members.get(area.author.id).displayName;
+		let user = report.guild.members.get(report.author.id).displayName;
+		let edit_en = report.content.replace(/Zentrales Thanalan/gi || /Thanalan central/gi, "Central Thanalan");
+		let edit_de = report.content.replace(/Central Thanalan/gi || /Thanalan central/gi, "Zentrales Thanalan");
+		let edit_fr = report.content.replace(/Central Thanalan/gi || /Zentrales Thanalan/gi, "Thanalan central");
 		//console.log("user: " + user);
-		area.delete();
-		area.channel.send("```" + user + ":" + "\n Central Thanalan " + coord + "\n Zentrales Thanalan " + coord + "\n Thanalan central " + coord + "```");
-		return;
+		report.delete();
+		report.channel.send("```" + user + ":\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
 		//console.log("coord: " + coord);
 	}
 	
