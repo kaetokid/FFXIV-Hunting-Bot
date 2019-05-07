@@ -14,14 +14,14 @@ bot.on('ready', () => {
 
 bot.on("message", report => {
 	
-	if(report.content.includes("Mor Dhona")) {
+	if(report.content.includes("Mor Dhona") || report.content.includes("Azys Lla") || report.content.includes("Yanxia")) {
 		if(report.author.bot) return;
 		
 		let user = report.guild.members.get(report.author.id).displayName;
 		
 		var embed = new Discord.RichEmbed()
 			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb::flag_de:flag_fr: " + report.content)
+			.addField("Reported by >>> " + user , ":flag_gb::flag_de::flag_fr: " + report.content)
 			.setColor(0xFF0000)
 		report.channel.send({embed});
 		
@@ -228,7 +228,7 @@ bot.on("message", report => {
 		report.channel.send({embed});
 	}
 
-		else if (report.content.includes("South Shroud") || report.content.includes("Südwald") || report.content.includes("Forêt du sud")) {
+	else if (report.content.includes("South Shroud") || report.content.includes("Südwald") || report.content.includes("Forêt du sud")) {
 		if(report.author.bot) return; 
 		
 		let user = report.guild.members.get(report.author.id).displayName;
