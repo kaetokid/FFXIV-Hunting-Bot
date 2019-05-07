@@ -43,8 +43,13 @@ bot.on("message", report => {
 		else
 			edit_fr = ":flag_fr: " + report.content;
 			
+			
 		report.delete();
-		report.channel.sendEmbed(embed, user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
+		
+		var embed = new Discord.RichEmbed()
+			.addField(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```")
+		report.channel.send({embed});
+		//report.channel.send(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
 	}
 	
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
