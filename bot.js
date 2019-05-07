@@ -20,6 +20,7 @@ bot.on("message", area => {
 		//console.log("user: " + user);
 		area.delete();
 		area.channel.send("```" + user + ":" + "\n Central Thanalan " + coord + "\n Zentrales Thanalan " + coord + "\n Thanalan central " + coord + "```");
+		return;
 		//console.log("coord: " + coord);
 	}
 	
