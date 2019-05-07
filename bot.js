@@ -54,7 +54,7 @@ bot.on("message", report => {
 		var embed = new Discord.RichEmbed()
 		.setTitle("Hunt Found")
 		.setAuthor(user)
-		.addField("",":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
+		.addField("Hunt Found 2",":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
 		.setColor(0xFF0000)
 		
 		report.channel.send({embed});
