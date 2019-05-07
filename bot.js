@@ -13,7 +13,7 @@ bot.on('ready', () => {
 //});
 
 bot.on("message", area => {
-	if (area.content.include("Zentrales Thanalan" || "Thanalan central")) {
+	if (area.content.includes("Zentrales Thanalan" || "Thanalan central")) {
 		const coord = area.content.slice(18,area.length);
 		
 		let user = area.guild.members.get(area.author.id).displayName;
