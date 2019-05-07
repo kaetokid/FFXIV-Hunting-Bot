@@ -23,7 +23,8 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb::flag_de::flag_fr: " + report.content)
 			.setColor(0xFF0000)
-		report.channel.send("@here" + {embed});
+		report.channel.send("@here");
+		report.channel.send({embed});
 		
 		report.delete();
 	}
