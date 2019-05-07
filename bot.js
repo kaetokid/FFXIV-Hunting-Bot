@@ -22,11 +22,11 @@ bot.on("message", report => {
 		let edit_fr = "";
 		
 		if (report.content.includes("Zentrales Thanalan"))
-			edit_en = ":flag_gb: " + report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
+			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
 		else if (report.content.includes("Thanalan central"))
-			edit_en = ":flag_gb: " + report.content.replace(/Thanalan central/gi, "Central Thanalan");
+			edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
 		else
-			edit_en = ":flag_gb: " + report.content;
+			edit_en = report.content;
 			
 			
 		if (report.content.includes("Central Thanalan"))
@@ -44,7 +44,7 @@ bot.on("message", report => {
 			edit_fr = ":flag_fr: " + report.content;
 			
 		report.delete();
-		report.channel.send("```" + user + ":\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
+		report.channel.sendEmbed(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
 	}
 	
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
