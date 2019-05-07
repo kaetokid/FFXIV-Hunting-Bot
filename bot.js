@@ -256,7 +256,7 @@ bot.on("message", report => {
 	
 	var embed = new Discord.RichEmbed()
 		.addField(user + ":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
-		.setColor(FF0000)
+		.setColor(0xFF0000)
 		.setFooter("")
 	report.channel.send({embed});
 });
