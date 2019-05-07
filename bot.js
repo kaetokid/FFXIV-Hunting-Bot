@@ -30,16 +30,16 @@ bot.on("message", report => {
 			
 			
 		if (report.content.includes("Central Thanalan"))
-			edit_de = report.content.replace(/Zentrales Thanalan/gi, "Zentrales Thanalan");
+			edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
 		else if (report.content.includes("Thanalan central"))
 			edit_de = report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
 		else
 			edit_de = report.content;
 			
 		if (report.content.includes("Central Thanalan"))
-			edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
+			edit_fr = report.content.replace(/Central Thanalan/gi, "Thanalan central");
 		else if (report.content.includes("Zentrales Thanalan"))
-			edit_fr = report.content.replace(/Thanalan central/gi, "Thanalan central");
+			edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
 		else
 			edit_fr = report.content;
 			
