@@ -14,8 +14,20 @@ bot.on('ready', () => {
 
 bot.on("message", report => {
 	
-	//if(report.content.includes("Mor Dhona"))
-	if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central")) {
+	if(report.content.includes("Mor Dhona")) {
+		if(report.author.bot) return;
+		
+		let user = report.guild.members.get(report.author.id).displayName;
+		
+		var embed = new Discord.RichEmbed()
+			.setTitle("Hunt found!")
+			.addField("Reported by >>> " + user , ":flag_gb::flag_de:flag_fr: " + report.content)
+			.setColor(0xFF0000)
+		
+		report.delete();
+	}
+	
+	else if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central")) {
 		if(report.author.bot) return; 
 		
 		let user = report.guild.members.get(report.author.id).displayName;
