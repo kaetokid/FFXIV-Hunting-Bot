@@ -22,26 +22,26 @@ bot.on("message", report => {
 		let edit_fr = "";
 		
 		if (report.content.includes("Zentrales Thanalan"))
-			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
+			edit_en = ":flag_gb: " + report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
 		else if (report.content.includes("Thanalan central"))
-			edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
+			edit_en = ":flag_gb: " + report.content.replace(/Thanalan central/gi, "Central Thanalan");
 		else
-			edit_en = report.content;
+			edit_en = ":flag_gb: " + report.content;
 			
 			
 		if (report.content.includes("Central Thanalan"))
-			edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
+			edit_de = ":flag_de: " + report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
 		else if (report.content.includes("Thanalan central"))
-			edit_de = report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
+			edit_de = ":flag_de: " + report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
 		else
-			edit_de = report.content;
+			edit_de = ":flag_de: " + report.content;
 			
 		if (report.content.includes("Central Thanalan"))
-			edit_fr = report.content.replace(/Central Thanalan/gi, "Thanalan central");
+			edit_fr = ":flag_fr: " + report.content.replace(/Central Thanalan/gi, "Thanalan central");
 		else if (report.content.includes("Zentrales Thanalan"))
-			edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
+			edit_fr = ":flag_fr: " + report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
 		else
-			edit_fr = report.content;
+			edit_fr = ":flag_fr: " + report.content;
 			
 		report.delete();
 		report.channel.send("```" + user + ":\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
