@@ -13,51 +13,51 @@ bot.on('ready', () => {
 //});
 
 bot.on("message", report => {
-
-	let user = "";
-	let edit_en = "";
-	let edit_de = "";
-	let edit_fr = "";
 	
 	
 	if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central")) {
 		if(report.author.bot) return; 
 		
-		user = report.guild.members.get(report.author.id).displayName;
+		let user = report.guild.members.get(report.author.id).displayName;
 
 		
 		if (report.content.includes("Zentrales Thanalan"))
-			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
+			let edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
 		else if (report.content.includes("Thanalan central"))
-			edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
+			let edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
 		else
-			edit_en = report.content;
+			let edit_en = report.content;
 			
 			
 		if (report.content.includes("Central Thanalan"))
-			edit_de = ":flag_de: " + report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
+			let edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
 		else if (report.content.includes("Thanalan central"))
-			edit_de = ":flag_de: " + report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
+			let edit_de = report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
 		else
-			edit_de = ":flag_de: " + report.content;
+			let edit_de = report.content;
 			
 		if (report.content.includes("Central Thanalan"))
-			edit_fr = ":flag_fr: " + report.content.replace(/Central Thanalan/gi, "Thanalan central");
+			let edit_fr = report.content.replace(/Central Thanalan/gi, "Thanalan central");
 		else if (report.content.includes("Zentrales Thanalan"))
-			edit_fr = ":flag_fr: " + report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
+			let edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
 		else
-			edit_fr = ":flag_fr: " + report.content;
+			let edit_fr = report.content;
 			
 			
 		report.delete();
 		
 		var embed = new Discord.RichEmbed()
-		.setTitle("Hunt Found")
 		.setAuthor(user)
 		.addField("Hunt Found 2",":\n" + ":flag_gb: " + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n")
 		.setColor(0xFF0000)
 		
 		report.channel.send({embed});
+		
+		
+		user = "";
+		edit_en = "";
+		edit_de = "";
+		edit_fr = "";
 	}
 	
 	else if (report.content.startsWith("Östliches Thanalan" || "Thanalan oriental")) {
