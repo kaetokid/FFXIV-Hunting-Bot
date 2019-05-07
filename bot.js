@@ -37,11 +37,11 @@ bot.on("message", report => {
 			edit_de = report.content;
 			
 		if (report.content.includes("Central Thanalan"))
-			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
+			edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
 		else if (report.content.includes("Zentrales Thanalan"))
-			edit_en = report.content.replace(/Thanalan central/gi, "Thanalan central");
+			edit_fr = report.content.replace(/Thanalan central/gi, "Thanalan central");
 		else
-			edit_en = report.content;
+			edit_fr = report.content;
 			
 		report.delete();
 		report.channel.send("```" + user + ":\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
