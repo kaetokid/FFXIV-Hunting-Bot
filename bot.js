@@ -22,10 +22,10 @@ bot.on("message", report => {
 		let edit_en = report.content.replace((/Zentrales Thanalan/gi || /Thanalan central/gi), "Central Thanalan");
 		//console.log("edit_en 1: " + edit_en);
 		//console.log("report.content 1: " + report.content);
-		let edit_de = report.content.replace((/Central Thanalan/gi, || /Thanalan central/gi), "Zentrales Thanalan");
+		let edit_de = report.content.replace((/Central Thanalan/gi || /Thanalan central/gi), "Zentrales Thanalan");
 		//console.log("edit_de: " + edit_de);
 		//console.log("report.content 2: " + report.content);
-		let edit_fr = report.content.replace((/Central Thanalan/gi, || /Zentrales Thanalan/gi), "Thanalan central");
+		let edit_fr = report.content.replace((/Central Thanalan/gi || /Zentrales Thanalan/gi), "Thanalan central");
 		//console.log("edit_fr: " + edit_fr);
 		//console.log("report.content 3: " + report.content);
 		report.delete();
