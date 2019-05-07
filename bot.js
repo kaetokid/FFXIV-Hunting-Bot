@@ -18,12 +18,12 @@ bot.on("message", report => {
 		if(report.author.bot) return; 
 		
 		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan") || report.content.replace(/Thanalan central/gi, "Central Thanalan");
-		console.log(edit_en);
-		let edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan") || report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
-		console.log(edit_de);
-		let edit_fr = report.content.replace(/Central Thanalan/gi, "Thanalan central") || report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
-		console.log(edit_fr);
+		let edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan") && report.content.replace(/Thanalan central/gi, "Central Thanalan");
+		//console.log(edit_en);
+		let edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan") && report.content.replace(/Thanalan central/gi, "Zentrales Thanalan");
+		//console.log(edit_de);
+		let edit_fr = report.content.replace(/Central Thanalan/gi, "Thanalan central") && report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
+		//console.log(edit_fr);
 		//console.log("user: " + user);
 		report.delete();
 		report.channel.send("```" + user + ":\n" + edit_en + "\n" + edit_de + "\n" + edit_fr + "\n" + "```");
