@@ -1138,7 +1138,7 @@ bot.on("message", map =>
 			map.delete();
 		}
 		
-		else if (map.content == ">Northern Thanalan" || map.content == ">Nördliches Thanalan" || map.content = ">Thanalan septentrional")
+		else if (map.content == ">Northern Thanalan" || map.content == ">Nördliches Thanalan" || map.content == ">Thanalan septentrional")
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + map.content.slice(1))
