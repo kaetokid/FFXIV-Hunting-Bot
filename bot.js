@@ -1438,7 +1438,7 @@ bot.on("message", hunt =>
 		var huntReport = hunt.content;
 		console.log("huntReport : " + huntReport + "\nhunt.content: " + hunt.content);
 		
-		if (huntReport.toLowerCase == ">agrippa")
+		if (huntReport.toLowerCase() == ">agrippa")
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
