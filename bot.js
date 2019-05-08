@@ -1436,6 +1436,7 @@ bot.on("message", hunt =>
 	
 		//var huntMessage = hunt.content;
 		var huntReport = hunt.content;
+		console.log("huntReport : " + huntReport + "\nhunt.content: " + hunt.content);
 		
 		if (huntReport.toLowerCase == ">agrippa")
 		{
