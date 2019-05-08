@@ -1436,7 +1436,7 @@ bot.on("message", hunt =>
 	
 		//let huntLowerCase = hunt.content.toLowerCase();
 		
-		if (hunt.toLowerCase.startsWith(">Agrippa"))
+		if (hunt.toLowerCase() == ">agrippa")
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
