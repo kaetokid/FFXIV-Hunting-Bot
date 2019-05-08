@@ -63,7 +63,7 @@ bot.on("message", report => {
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-			.setImage("https://i.imgtc.com/mpeyqjk.png")
+			//.setImage("https://i.imgtc.com/mpeyqjk.png")
 		//report.channel.send("@here");
 		report.channel.send({embed});
 	}
