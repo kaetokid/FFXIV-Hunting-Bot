@@ -1435,7 +1435,7 @@ bot.on("message", hunt =>
 		if(hunt.author.bot) return;
 	
 	
-		if (hunt.content.startsWith(">Agrippa")
+		if (hunt.content.startsWith(">Agrippa"))
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
