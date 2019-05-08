@@ -11,7 +11,7 @@ bot.on('ready', () => {
 
 bot.on("message", report => {
 	
-	if(report.content.startsWith(">") return;
+	if(report.content.startsWith(">")) return;
 	
 	if(report.content.includes("Mor Dhona") || report.content.includes("Azys Lla") || report.content.includes("Yanxia")) {
 		if(report.author.bot) return;
