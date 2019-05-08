@@ -1099,7 +1099,7 @@ bot.on("message", role =>
 	{
 		role.author.send("You now have access to the channel german.");
 		var role = role.guild.roles.find("name", "Member");
-		role.addRole(role);
+		role.member.roles.add(role);
 	}
 		
 });
