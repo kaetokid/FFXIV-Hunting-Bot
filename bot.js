@@ -1103,7 +1103,9 @@ bot.on("message", role =>
 		if (role.content == "+deutsch")
 		{	
 			// \@ROLE to get the id & "mention" has to be allowed
-			role.member.addRole("575512648117125143");
+			//role.member.addRole("575512648117125143");
+			const userRole = role.guild.roles.find("name", "deutsch");
+			role.member.addRole(userRole);
 		
 			role.author.send("Du hast nun Zugriff auf den Text-Channel #german und die deutschen Sprach-Channel.");
 		}
