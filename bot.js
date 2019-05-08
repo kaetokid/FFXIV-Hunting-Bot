@@ -8,7 +8,7 @@ bot.on('ready', () => {
 });
 
 
-
+// Hunt-Reports
 bot.on("message", report => {
 	
 	if(report.content.startsWith(">")) return;
@@ -1097,6 +1097,7 @@ bot.on("message", report => {
 });
 
 
+// Region-Maps with Hunt-Spawnpoints
 bot.on("message", map =>
 {
 	if(map.channel.name == "test")
@@ -1112,6 +1113,7 @@ bot.on("message", map =>
 				.setImage("https://i.imgtc.com/3m2Vhvo.png")
 			
 			map.author.send({embed})
+			map.delete();
 		}
 		
 		else if (map.content == ">Central Thanalan" || map.content == ">Zentrales Thanalan" || map.content == ">Thanalan central")
@@ -1119,14 +1121,379 @@ bot.on("message", map =>
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + map.content.slice(1))
 				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/mpeyqjk.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Eastern Thanalan" || map.content == ">Östliches Thanalan" || map.content == ">Thanalan oriental")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/PiSleYN.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Northern Thanalan" || map.content == ">Nördliches Thanalan" || map.content = ">Thanalan septentrional")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/gpSqTrv.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Southern Thanalan" || map.content == ">Südliches Thanalan" || map.content == ">Thanalan méridional")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/9GC5edr.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Western Thanalan" || map.content = ">Westliches Thanalan" || map.content == ">Thanalan occidental")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/KFMRkQX.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">South Shroud" || map.content == ">Südwald" || map.content == ">Forêt du sud")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/35n6lPQ.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">North Shroud" || map.content == ">Nordwald" || map.content == ">Forêt du nord")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/7SL0gym.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">East Shroud" || map.content == ">Ostwald" || map.content == ">Forêt de l'est")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/inMDorM.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Central Shroud" || map.content == ">Tiefer Wald" || map.content == ">Forêt centrale")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/UnXxMS1.png")
 			
 			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Western La Noscea" || map.content == ">Westliches La Noscea" || map.content == ">Noscea occidentale")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/RdWeObN.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Upper La Noscea" || map.content == ">Oberes La Noscea" || map.content == ">Haute-Noscea")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/y0brsLf.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Outer La Noscea" || map.content == ">Äußeres La Noscea" || map.content == ">Noscea extérieure")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/PSOTCrs.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Middle La Noscea" || map.content == ">Zentrales La Noscea" || map.content == ">Noscea centrale")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/Pl3Lc2f.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Lower La Noscea" || map.content == ">Unteres La Noscea" || map.content == ">Basse-Noscea")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/jPdsXE2.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Eastern La Noscea" || map.content == ">Östliches La Noscea" || map.content == ">Noscea orientale")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/zDoE5IR.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Coerthas Central Highlands" || map.content == ">Zentrales Hochland von Coerthas" || map.content == ">Hautes terres du Coerthas central")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/QSHKW98.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Coerthas Western Highlands" || map.content == ">Westliches Hochland von Coerthas" || map.content == ">Hautes terres du Coerthas occidental")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/C3lvS45.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Churning Mists" || map.content == ">Wallende Nebel" || map.content == "L'Écume des cieux de Dravania")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/mxI5aeI.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Dravanian Hinterlands" || map.content == ">Dravanisches Hinterland" || map.content == ">Arrière-pays dravanien")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/LPGK9Lc.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Dravanian Forelands" || map.content == ">Dravanisches Vorland" || map.content == ">Avant-pays dravanien")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/tTq1EeA.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Sea of Clouds" || map.content == ">Abalathisches Wolkenmeer" || map.content == ">L'Écume des cieux d'Abalathia")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/ZUZiEsa.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Azys Lla")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/Uk4E0Mk.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Ruby Sea" || map.content == ">Rubinsee" || map.content == ">Mer de Rubis")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/HK2m66j.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Azim Steppe" || map.content == ">Azim-Steppe" || map.content == ">Steppe d'Azim")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/vR1xvEX.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">Yanxia")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/iiQhkHE.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Peaks" || map.content == ">Die Zinnen" || map.content == ">Les Pics")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/9VHVpkR.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Lochs" || map.content == ">Das Fenn" || map.content == ">Les Lacs")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/xAYa0xf.png")
+			
+			map.author.send({embed})
+			map.delete();
+		}
+		
+		else if (map.content == ">The Fringes" || map.content == ">Abanisches Grenzland" || map.content == ">Les Marges")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/6mn0Q0Q.png")
+			
+			map.author.send({embed})
+			map.delete();
 		}
 	}
 });
 
 
+// Hunt-Spawnpoints
+bot.on("message", hunt =>
+{
+	if(hunt.channel.name == "test")
+	{
+		if(hunt.author.bot) return;
+	
+	
+		if (hunt.content.startsWith(">Agrippa")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + hunt.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/UUk87Dn.png")
+			
+			hunt.author.send({embed})
+			hunt.delete();
+		}
+		
+		else if (hunt.content == ">Kurrea")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + hunt.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/8qUFCS3.png")
+			
+			hunt.author.send({embed})
+			hunt.delete();
+		}
+		
+		else if (hunt.content == ">Leech King" || hunt.content == ">Egelkönig")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + hunt.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/JQfNhCQ.png")
+			
+			hunt.author.send({embed})
+			hunt.delete();
+		}
+		
+		else if (hunt.content == ">Brontes")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + hunt.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/UnXl3tH.png")
+			
+			hunt.author.send({embed})
+			hunt.delete();
+		}
+		
+		else if (hunt.content.startsWith(">Sabotender") || hunt.content.toLowerCase.startsWith(">Pampa"))
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + hunt.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/sXdlAlt.png")
+			
+			hunt.author.send({embed})
+			hunt.delete();
+		}
+	}
+});
+
+
+// Role-Assignment
 bot.on("message", role =>
 {
 	if(role.channel.name == "role-assignment")
@@ -1143,7 +1510,7 @@ bot.on("message", role =>
 			
 			role.delete();
 			
-			role.author.send("Du hast nun Zugriff auf den Text-Channel #german und die deutschen Sprach-Channel.");
+			role.author.send("Du hast nun Zugriff auf den deutschen Text-Channel und die deutschen Sprach-Channel.");
 		}
 	
 		else if (role.content == "+english")
@@ -1154,10 +1521,10 @@ bot.on("message", role =>
 			
 			role.delete();
 			
-			role.author.send("You now have access to the text-channel #english and the english voice-channels.");
+			role.author.send("You now have access to the enlgish text-channel and the english voice-channels.");
 		}
 	
-		else if (role.content == "+français")
+		else if (role.content == "+français" || role.content == "+francais")
 		{
 			//role.member.addRole("575512655201042442");
 			const userRole = role.guild.roles.find("name", "-français-");
@@ -1165,7 +1532,7 @@ bot.on("message", role =>
 			
 			role.delete();
 			
-			role.author.send("Vous avez maintenant accès au canal texte #français et aux canaux francophones.");
+			role.author.send("Vous avez maintenant accès au canal de texte français et aux canaux de langue française.");
 		}
 	
 		else if (role.content == "-deutsch")
@@ -1188,7 +1555,7 @@ bot.on("message", role =>
 			role.author.send("You have revoked the language setting.");
 		}
 		
-		else if (role.content == "-français")
+		else if (role.content == "-français" || role.content == "-francais")
 		{
 			const userRole = role.guild.roles.find("name", "-français-");
 			role.member.removeRole(userRole);
