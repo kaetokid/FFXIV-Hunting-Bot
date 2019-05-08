@@ -1096,11 +1096,8 @@ bot.on("message", report => {
 bot.on("message", role =>
 {
 	if (role.content == ">german")
-	{
-		let userRole = role.guild.roles.find("name", "Member");
-		const member = role.mentions.member.first();
-		
-		member.addRole(userRole);
+	{	
+		role.member.addRole("575510049401864194");
 		
 		role.author.send("You now have access to the channel german.");
 	}
