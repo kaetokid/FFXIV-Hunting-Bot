@@ -1104,7 +1104,7 @@ bot.on("message", role =>
 		{	
 			// \@ROLE to get the id & "mention" has to be allowed
 			//role.member.addRole("575512648117125143");
-			const userRole = role.guild.roles.find("name", "deutsch");
+			const userRole = role.guild.roles.find("name", "-deutsch-");
 			role.member.addRole(userRole);
 		
 			role.author.send("Du hast nun Zugriff auf den Text-Channel #german und die deutschen Sprach-Channel.");
@@ -1112,24 +1112,47 @@ bot.on("message", role =>
 	
 		else if (role.content == "+english")
 		{
-			role.member.addRole("575512651879153685");
+			//role.member.addRole("575512651879153685");
+			const userRole = role.guild.roles.find("name", "-english-");
+			role.member.addRole(userRole);
 		
 			role.author.send("You now have access to the text-channel #english and the enlish voice-channels.");
 		}
 	
-		else if (role.content == "+francais")
+		else if (role.content == "+français")
 		{
-			role.member.addRole("575512655201042442");
+			//role.member.addRole("575512655201042442");
+			const userRole = role.guild.roles.find("name", "-français-");
+			role.member.addRole(userRole);
 		
-			role.author.send("Du hast nun Zugriff auf den Text-Channel #francais und die französischen Sprach-Channel.");
+			role.author.send("Vous avez maintenant accès au canal texte #français et aux canaux francophones.");
 		}
 	
 		else if (role.content == "-deutsch")
 		{
-			role.member.removeRole("575512648117125143");
+			const userRole = role.guild.roles.find("name", "-deutsch-");
+			role.member.removeRole(userRole);
 		
-			role.author.send("You have revoked the language setting!");
+			role.author.send("You have revoked the language setting.");
 		}
+		
+		else if (role.content == "-english")
+		{
+			const userRole = role.guild.roles.find("name", "-english-");
+			role.member.removeRole(userRole);
+		
+			role.author.send("You have revoked the language setting.");
+		}
+		
+		else if (role.content == "-français")
+		{
+			const userRole = role.guild.roles.find("name", "-français-");
+			role.member.removeRole(userRole);
+		
+			role.author.send("You have revoked the language setting.");
+		}
+		
+		else role.author.send("You have sent an invalid command!");
 	}
 });
 
