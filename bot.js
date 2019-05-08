@@ -1096,4 +1096,16 @@ bot.on("message", report => {
 	}
 });
 
+bot.on("message", role =>
+{
+	if (role.content == ">german")
+	{
+		role.member.send("You now have access to the channel german.");
+		let memberRole = role.member.guild.roles.find("name", "Member");
+		member.addRole(memberRole);
+	}
+		
+});
+
+
 bot.login(process.env.BOT_TOKEN);
