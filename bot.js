@@ -1095,7 +1095,7 @@ bot.on("message", report => {
 
 bot.on("message", role =>
 {
-	if(role.channel.name == "roles")
+	if(role.channel.name == "role-assignment")
 	{
 		if(role.author.bot) return;
 		
