@@ -1095,7 +1095,7 @@ bot.on("message", report => {
 
 bot.on("message", role =>
 {
-	if(role.channel.name("test"))
+	if(role.channel.id("570717879046242304"))
 	{
 		if(report.author.bot) return;
 		
