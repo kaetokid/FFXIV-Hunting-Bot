@@ -1094,6 +1094,24 @@ bot.on("message", report => {
 	}
 });
 
+
+bot.on("message", map =>
+{
+	if(map.author.bot) return;
+	
+	
+	if(map.content == ">Mor Dhona")
+	{
+		var embed = new Discord.RichEmbed()
+			.setTitle("The Map you requested:")
+			.setColor(0x008000)
+			.setImage("https://i.imgtc.com/3m2Vhvo.png")
+			
+		map.author.send({embed})
+	}
+});
+
+
 bot.on("message", role =>
 {
 	if(role.channel.name == "role-assignment")
