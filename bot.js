@@ -1097,7 +1097,7 @@ bot.on("message", role =>
 {
 	if(role.channel.name == "test")
 	{
-		if(report.author.bot) return;
+		if(role.author.bot) return;
 		
 		
 		if (role.content == "+deutsch")
