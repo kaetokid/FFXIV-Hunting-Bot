@@ -1095,14 +1095,40 @@ bot.on("message", report => {
 
 bot.on("message", role =>
 {
-	if (role.content == ">german")
-	{	
-		// \@ROLE to get the id
-		role.member.addRole("361059827516178453");
+	if(role.channel.name.equals("test"))
+	{
+		if(report.author.bot) return;
 		
-		role.author.send("You now have access to the channel german.");
+		
+		if (role.content == "+deutsch")
+		{	
+			// \@ROLE to get the id & "mention" has to be allowed
+			role.member.addRole("575512648117125143");
+		
+			role.author.send("Du hast nun Zugriff auf den Text-Channel #german und die deutschen Sprach-Channel.");
+		}
+	
+		else if (role.content == "+english")
+		{
+			role.member.addRole("575512651879153685");
+		
+			role.author.send("You now have access to the text-channel #english and the enlish voice-channels.");
+		}
+	
+		else if (role.content == "+francais")
+		{
+			role.member.addRole("575512655201042442");
+		
+			role.author.send("Du hast nun Zugriff auf den Text-Channel #francais und die französischen Sprach-Channel.");
+		}
+	
+		else if (role.content == "-deutsch")
+		{
+			role.member.removeRole("575512648117125143");
+		
+			role.author.send("You have revoked the language setting!");
+		}
 	}
-		
 });
 
 
