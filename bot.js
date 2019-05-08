@@ -1435,7 +1435,7 @@ bot.on("message", hunt =>
 		if(hunt.author.bot) return;
 	
 		//var huntMessage = hunt.content;
-		var huntLowerCase = hunt.toLowerCase();
+		var huntLowerCase = hunt.string().toLowerCase();
 		
 		if (huntLowerCase == ">agrippa")
 		{
