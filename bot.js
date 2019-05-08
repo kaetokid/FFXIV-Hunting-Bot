@@ -1434,8 +1434,9 @@ bot.on("message", hunt =>
 	{
 		if(hunt.author.bot) return;
 	
-	
-		if (hunt.content.startsWith(">Agrippa"))
+		var huntLowerCase = hunt.content.toLowerCase();
+		
+		if (huntLowerCase.content.startsWith(">Agrippa"))
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
@@ -1446,7 +1447,7 @@ bot.on("message", hunt =>
 			hunt.delete();
 		}
 		
-		else if (hunt.content == ">Kurrea")
+		else if (huntLowerCase.content == ">Kurrea")
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
@@ -1457,7 +1458,7 @@ bot.on("message", hunt =>
 			hunt.delete();
 		}
 		
-		else if (hunt.content == ">Leech King" || hunt.content == ">Egelkönig")
+		else if (huntLowerCase.content == ">Leech King" || huntLowerCase.content == ">Egelkönig")
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
@@ -1468,7 +1469,7 @@ bot.on("message", hunt =>
 			hunt.delete();
 		}
 		
-		else if (hunt.content == ">Brontes")
+		else if (huntLowerCase.content == ">Brontes")
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
@@ -1479,7 +1480,7 @@ bot.on("message", hunt =>
 			hunt.delete();
 		}
 		
-		else if (hunt.content.startsWith(">Sabotender") || hunt.content.toLowerCase.startsWith(">Pampa"))
+		else if (huntLowerCase.content.startsWith(">sabotender") || huntLowerCase.content.startsWith(">Pampa"))
 		{
 			var embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + hunt.content.slice(1))
