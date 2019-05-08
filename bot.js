@@ -1095,7 +1095,7 @@ bot.on("message", report => {
 
 bot.on("message", role =>
 {
-	if(role.channel.name == "test")
+	if(role.channel.name == "roles")
 	{
 		if(role.author.bot) return;
 		
@@ -1106,7 +1106,9 @@ bot.on("message", role =>
 			//role.member.addRole("575512648117125143");
 			const userRole = role.guild.roles.find("name", "-deutsch-");
 			role.member.addRole(userRole);
-		
+			
+			role.delete();
+			
 			role.author.send("Du hast nun Zugriff auf den Text-Channel #german und die deutschen Sprach-Channel.");
 		}
 	
@@ -1115,8 +1117,10 @@ bot.on("message", role =>
 			//role.member.addRole("575512651879153685");
 			const userRole = role.guild.roles.find("name", "-english-");
 			role.member.addRole(userRole);
-		
-			role.author.send("You now have access to the text-channel #english and the enlish voice-channels.");
+			
+			role.delete();
+			
+			role.author.send("You now have access to the text-channel #english and the english voice-channels.");
 		}
 	
 		else if (role.content == "+français")
@@ -1124,7 +1128,9 @@ bot.on("message", role =>
 			//role.member.addRole("575512655201042442");
 			const userRole = role.guild.roles.find("name", "-français-");
 			role.member.addRole(userRole);
-		
+			
+			role.delete();
+			
 			role.author.send("Vous avez maintenant accès au canal texte #français et aux canaux francophones.");
 		}
 	
@@ -1132,7 +1138,9 @@ bot.on("message", role =>
 		{
 			const userRole = role.guild.roles.find("name", "-deutsch-");
 			role.member.removeRole(userRole);
-		
+			
+			role.delete();
+			
 			role.author.send("You have revoked the language setting.");
 		}
 		
@@ -1140,7 +1148,9 @@ bot.on("message", role =>
 		{
 			const userRole = role.guild.roles.find("name", "-english-");
 			role.member.removeRole(userRole);
-		
+			
+			role.delete();
+			
 			role.author.send("You have revoked the language setting.");
 		}
 		
@@ -1148,11 +1158,17 @@ bot.on("message", role =>
 		{
 			const userRole = role.guild.roles.find("name", "-français-");
 			role.member.removeRole(userRole);
-		
+			
+			role.delete();
+			
 			role.author.send("You have revoked the language setting.");
 		}
 		
-		else role.author.send("You have sent an invalid command!");
+		else
+		{
+			role.delete();
+			role.author.send("You have sent an invalid command!");
+		}
 	}
 });
 
