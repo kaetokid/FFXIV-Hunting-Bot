@@ -1099,7 +1099,7 @@ bot.on("message", report => {
 
 bot.on("message", map =>
 {
-	if(role.channel.name == "test")
+	if(map.channel.name == "test")
 	{
 		if(map.author.bot) return;
 	
