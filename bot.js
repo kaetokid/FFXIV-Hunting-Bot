@@ -1097,8 +1097,9 @@ bot.on("message", role =>
 {
 	if (role.content == ">german")
 	{
-		role.author.sendMessage("You now have access to the channel german.");
-		//role.author.addRole("Member");
+		role.author.send("You now have access to the channel german.");
+		var role = role.guild.roles.find("name", "Member");
+		role.addRole(role);
 	}
 		
 });
