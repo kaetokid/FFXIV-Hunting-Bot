@@ -11,6 +11,8 @@ bot.on('ready', () => {
 
 bot.on("message", report => {
 	
+	if(report.content.startsWith(">") return;
+	
 	if(report.content.includes("Mor Dhona") || report.content.includes("Azys Lla") || report.content.includes("Yanxia")) {
 		if(report.author.bot) return;
 		
@@ -1097,17 +1099,30 @@ bot.on("message", report => {
 
 bot.on("message", map =>
 {
-	if(map.author.bot) return;
-	
-	
-	if(map.content == ">Mor Dhona")
+	if(role.channel.name == "test")
 	{
-		var embed = new Discord.RichEmbed()
-			.setTitle("The Map you requested:")
-			.setColor(0x008000)
-			.setImage("https://i.imgtc.com/3m2Vhvo.png")
+		if(map.author.bot) return;
+	
+	
+		if (map.content == ">Mor Dhona")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/3m2Vhvo.png")
 			
-		map.author.send({embed})
+			map.author.send({embed})
+		}
+		
+		else if (map.content == ">Central Thanalan" || map.content == ">Zentrales Thanalan" || map.content == ">Thanalan central")
+		{
+			var embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + map.content.slice(1))
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/UnXxMS1.png")
+			
+			map.author.send({embed})
+		}
 	}
 });
 
