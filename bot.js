@@ -1434,7 +1434,7 @@ bot.on("message", hunt =>
 	{
 		if(hunt.author.bot) return;
 	
-		var huntLowerCase = hunt.content.toLowerCase();
+		let huntLowerCase = hunt.content.toLowerCase();
 		
 		if (huntLowerCase.content.startsWith(">Agrippa"))
 		{
