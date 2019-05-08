@@ -1097,7 +1097,8 @@ bot.on("message", role =>
 {
 	if (role.content == ">german")
 	{	
-		role.member.addRole("575510049401864194");
+		// \@ROLE to get the id
+		role.member.addRole("361059827516178453");
 		
 		role.author.send("You now have access to the channel german.");
 	}
