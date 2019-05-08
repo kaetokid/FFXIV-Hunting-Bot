@@ -1,16 +1,13 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
+
+
 bot.on('ready', () => {
     console.log("> " + bot.user.tag + " <" + " is Online.");
 });
 
 
-//bot.on("message", function(message) {
-//   if (message.content.startsWith("Zentrales Thanalan ")) {	
-//	   message.channel.send('Central Thanalan');
-//   }
-//});
 
 bot.on("message", report => {
 	
@@ -1100,9 +1097,8 @@ bot.on("message", role =>
 {
 	if (role.content == ">german")
 	{
-		role.member.send("You now have access to the channel german.");
-		let memberRole = role.member.guild.roles.find("name", "Member");
-		member.addRole(memberRole);
+		role.guild.members.send("You now have access to the channel german.");
+		role.guild.members.addRole("Member");
 	}
 		
 });
