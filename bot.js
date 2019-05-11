@@ -11,30 +11,62 @@ bot.on('ready', () => {
 // Hunt-Reports
 bot.on("message", report => {
 	
-	if(report.content.startsWith(">")) return;
+	if(report.channel.name != "s-rank" && report.channel.name != "boss-fate"  && report.channel.name != ("a-rank-lich")  && report.channel.name != ("a-rank-odin")  && report.channel.name != ("a-rank-phoenix")  && report.channel.name != ("a-rank-shiva")  && report.channel.name != ("a-rank-zodiark")) return;
+	else if(report.author.bot) return;
 	
-	if(report.content.includes("Mor Dhona") || report.content.includes("Azys Lla") || report.content.includes("Yanxia")) {
-		if(report.author.bot) return;
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		
-		var embed = new Discord.RichEmbed()
+	let user = report.guild.members.get(report.author.id).displayName;
+	let role = "";
+	let edit_en = "";
+	let edit_de = "";
+	let edit_fr = "";
+	let validation = 0;
+	let embed = new Discord.RichEmbed()
+	
+	
+	if(report.content.includes("Mor Dhona") || report.content.includes("Azys Lla") || report.content.includes("Yanxia"))
+	{
+		embed = new Discord.RichEmbed()
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb::flag_de::flag_fr: " + report.content)
 			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 		
-		report.delete();
+		report.delete();		
+		
+		if(report.channel.name == "s-rank" || report.channel.name == "boss-fate")
+			report.channel.send("@here");
+		else if(report.channel.name == "a-rank-lich")
+		{
+			role = report.guild.roles.find(report => report.name === "Lich");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-odin")
+		{
+			role = report.guild.roles.find(report => report.name === "Odin");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-phoenix")
+		{
+			role = report.guild.roles.find(report => report.name === "Phoenix");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-shiva")
+		{
+			role = report.guild.roles.find(report => report.name === "Shiva");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-zodiark")
+		{
+			role = report.guild.roles.find(report => report.name === "Zodiark");
+			report.channel.send(role.toString());
+		}
+		
+		report.channel.send({embed});
+		return;
 	}
 	
-	else if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Central Thanalan") || report.content.includes("Zentrales Thanalan") || report.content.includes("Thanalan central"))
+	{	
+		validation = 1;
 		
 		if (report.content.includes("Zentrales Thanalan"))
 			edit_en = report.content.replace(/Zentrales Thanalan/gi, "Central Thanalan");
@@ -42,7 +74,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Thanalan central/gi, "Central Thanalan");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Central Thanalan"))
 			edit_de = report.content.replace(/Central Thanalan/gi, "Zentrales Thanalan");
@@ -57,26 +88,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Zentrales Thanalan/gi, "Thanalan central");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-			//.setImage("https://i.imgtc.com/mpeyqjk.png")
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 	
-	else if (report.content.includes("Eastern Thanalan") || report.content.includes("Östliches Thanalan") || report.content.includes("Thanalan oriental")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Eastern Thanalan") || report.content.includes("Östliches Thanalan") || report.content.includes("Thanalan oriental"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Östliches Thanalan"))
 			edit_en = report.content.replace(/Östliches Thanalan/gi, "Eastern Thanalan");
@@ -84,7 +100,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Thanalan oriental/gi, "Eastern Thanalan");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Eastern Thanalan"))
 			edit_de = report.content.replace(/Eastern Thanalan/gi, "Östliches Thanalan");
@@ -99,25 +114,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Östliches Thanalan/gi, "Thanalan oriental");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Northern Thanalan") || report.content.includes("Nördliches Thanalan") || report.content.includes("Thanalan septentrional")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Northern Thanalan") || report.content.includes("Nördliches Thanalan") || report.content.includes("Thanalan septentrional"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Nördliches Thanalan"))
 			edit_en = report.content.replace(/Nördliches Thanalan/gi, "Northern Thanalan");
@@ -125,8 +126,7 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Thanalan septentrional/gi, "Northern Thanalan");
 		else
 			edit_en = report.content;
-			
-			
+				
 		if (report.content.includes("Northern Thanalan"))
 			edit_de = report.content.replace(/Northern Thanalan/gi, "Nördliches Thanalan");
 		else if (report.content.includes("Thanalan septentrional"))
@@ -140,25 +140,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Nördliches Thanalan/gi, "Thanalan septentrional");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Southern Thanalan") || report.content.includes("Südliches Thanalan") || report.content.includes("Thanalan méridional")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Southern Thanalan") || report.content.includes("Südliches Thanalan") || report.content.includes("Thanalan méridional"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Südliches Thanalan"))
 			edit_en = report.content.replace(/Südliches Thanalan/gi, "Southern Thanalan");
@@ -166,7 +152,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Thanalan méridional/gi, "Southern Thanalan");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Southern Thanalan"))
 			edit_de = report.content.replace(/Southern Thanalan/gi, "Südliches Thanalan");
@@ -181,25 +166,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Südliches Thanalan/gi, "Thanalan méridional");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Western Thanalan") || report.content.includes("Westliches Thanalan") || report.content.includes("Thanalan occidental")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Western Thanalan") || report.content.includes("Westliches Thanalan") || report.content.includes("Thanalan occidental"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Westliches Thanalan"))
 			edit_en = report.content.replace(/Westliches Thanalan/gi, "Western Thanalan");
@@ -207,8 +178,7 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Thanalan occidental/gi, "Western Thanalan");
 		else
 			edit_en = report.content;
-			
-			
+				
 		if (report.content.includes("Western Thanalan"))
 			edit_de = report.content.replace(/Western Thanalan/gi, "Westliches Thanalan");
 		else if (report.content.includes("Thanalan occidental"))
@@ -222,25 +192,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Westliches Thanalan/gi, "Thanalan occidental");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("South Shroud") || report.content.includes("Südwald") || report.content.includes("Forêt du sud")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("South Shroud") || report.content.includes("Südwald") || report.content.includes("Forêt du sud"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Südwald"))
 			edit_en = report.content.replace(/Südwald/gi, "South Shroud");
@@ -248,8 +204,7 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Forêt du sud/gi, "South Shroud");
 		else
 			edit_en = report.content;
-			
-			
+				
 		if (report.content.includes("South Shroud"))
 			edit_de = report.content.replace(/South Shroud/gi, "Südwald");
 		else if (report.content.includes("Forêt du sud"))
@@ -263,25 +218,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Südwald/gi, "Forêt du sud");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("North Shroud") || report.content.includes("Nordwald") || report.content.includes("Forêt du nord")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("North Shroud") || report.content.includes("Nordwald") || report.content.includes("Forêt du nord"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Nordwald"))
 			edit_en = report.content.replace(/Nordwald/gi, "North Shroud");
@@ -289,8 +230,7 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Forêt du nord/gi, "North Shroud");
 		else
 			edit_en = report.content;
-			
-			
+				
 		if (report.content.includes("North Shroud"))
 			edit_de = report.content.replace(/North Shroud/gi, "Nordwald");
 		else if (report.content.includes("Forêt du nord"))
@@ -304,25 +244,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Nordwald/gi, "Forêt du nord");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("East Shroud") || report.content.includes("Ostwald") || report.content.includes("Forêt de l'est")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("East Shroud") || report.content.includes("Ostwald") || report.content.includes("Forêt de l'est"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Ostwald"))
 			edit_en = report.content.replace(/Ostwald/gi, "East Shroud");
@@ -330,7 +256,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Forêt de l'est/gi, "East Shroud");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("East Shroud"))
 			edit_de = report.content.replace(/East Shroud/gi, "Ostwald");
@@ -345,25 +270,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Ostwald/gi, "Forêt de l'est");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Central Shroud") || report.content.includes("Tiefer Wald") || report.content.includes("Forêt centrale")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Central Shroud") || report.content.includes("Tiefer Wald") || report.content.includes("Forêt centrale"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Tiefer Wald"))
 			edit_en = report.content.replace(/Tiefer Wald/gi, "Central Shroud");
@@ -371,7 +282,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Forêt centrale/gi, "Central Shroud");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Central Shroud"))
 			edit_de = report.content.replace(/Central Shroud/gi, "Tiefer Wald");
@@ -386,25 +296,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Tiefer Wald/gi, "Forêt centrale");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Western La Noscea") || report.content.includes("Westliches La Noscea") || report.content.includes("Noscea occidentale")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Western La Noscea") || report.content.includes("Westliches La Noscea") || report.content.includes("Noscea occidentale"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Westliches La Noscea"))
 			edit_en = report.content.replace(/Westliches La Noscea/gi, "Western La Noscea");
@@ -412,8 +308,7 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Noscea occidentale/gi, "Western La Noscea");
 		else
 			edit_en = report.content;
-			
-			
+				
 		if (report.content.includes("Western La Noscea"))
 			edit_de = report.content.replace(/Western La Noscea/gi, "Westliches La Noscea");
 		else if (report.content.includes("Noscea occidentale"))
@@ -427,25 +322,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Westliches La Noscea/gi, "Noscea occidentale");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Upper La Noscea") || report.content.includes("Oberes La Noscea") || report.content.includes("Haute-Noscea")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Upper La Noscea") || report.content.includes("Oberes La Noscea") || report.content.includes("Haute-Noscea"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Oberes La Noscea"))
 			edit_en = report.content.replace(/Oberes La Noscea/gi, "Upper La Noscea");
@@ -453,7 +334,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Haute-Noscea/gi, "Upper La Noscea");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Upper La Noscea"))
 			edit_de = report.content.replace(/Upper La Noscea/gi, "Oberes La Noscea");
@@ -468,25 +348,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Oberes La Noscea/gi, "Haute-Noscea");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Outer La Noscea") || report.content.includes("Äußeres La Noscea") || report.content.includes("Noscea extérieure")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Outer La Noscea") || report.content.includes("Äußeres La Noscea") || report.content.includes("Noscea extérieure"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Äußeres La Noscea"))
 			edit_en = report.content.replace(/Äußeres La Noscea/gi, "Outer La Noscea");
@@ -494,7 +360,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Noscea extérieure/gi, "Outer La Noscea");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Outer La Noscea"))
 			edit_de = report.content.replace(/Outer La Noscea/gi, "Äußeres La Noscea");
@@ -509,25 +374,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Äußeres La Noscea/gi, "Noscea extérieure");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Middle La Noscea") || report.content.includes("Zentrales La Noscea") || report.content.includes("Noscea centrale")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Middle La Noscea") || report.content.includes("Zentrales La Noscea") || report.content.includes("Noscea centrale"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Zentrales La Noscea"))
 			edit_en = report.content.replace(/Zentrales La Noscea/gi, "Middle La Noscea");
@@ -535,7 +386,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Noscea centrale/gi, "Middle La Noscea");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Middle La Noscea"))
 			edit_de = report.content.replace(/Middle La Noscea/gi, "Zentrales La Noscea");
@@ -550,25 +400,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Zentrales La Noscea/gi, "Noscea centrale");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Lower La Noscea") || report.content.includes("Unteres La Noscea") || report.content.includes("Basse-Noscea")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Lower La Noscea") || report.content.includes("Unteres La Noscea") || report.content.includes("Basse-Noscea"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Unteres La Noscea"))
 			edit_en = report.content.replace(/Unteres La Noscea/gi, "Lower La Noscea");
@@ -576,7 +412,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Basse-Noscea/gi, "Lower La Noscea");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Lower La Noscea"))
 			edit_de = report.content.replace(/Lower La Noscea/gi, "Unteres La Noscea");
@@ -591,25 +426,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Unteres La Noscea/gi, "Basse-Noscea");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Eastern La Noscea") || report.content.includes("Östliches La Noscea") || report.content.includes("Noscea orientale")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Eastern La Noscea") || report.content.includes("Östliches La Noscea") || report.content.includes("Noscea orientale"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Östliches La Noscea"))
 			edit_en = report.content.replace(/Östliches La Noscea/gi, "Eastern La Noscea");
@@ -617,7 +438,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Noscea orientale/gi, "Eastern La Noscea");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("Eastern La Noscea"))
 			edit_de = report.content.replace(/Eastern La Noscea/gi, "Östliches La Noscea");
@@ -632,33 +452,18 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Östliches La Noscea/gi, "Noscea orientale");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Coerthas Central Highlands") || report.content.includes("Zentrales Hochland von Coerthas") || report.content.includes("Hautes terres du Coerthas central")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Coerthas Central Highlands") || report.content.includes("Zentrales Hochland von Coerthas") || report.content.includes("Hautes terres du Coerthas central"))
+	{	
+		validation = 1;
 		
 		if (report.content.includes("Zentrales Hochland von Coerthas"))
 			edit_en = report.content.replace(/Zentrales Hochland von Coerthas/gi, "Coerthas Central Highlands");
 		else if (report.content.includes("Hautes terres du Coerthas central"))
 			edit_en = report.content.replace(/Hautes terres du Coerthas central/gi, "Coerthas Central Highlands");
 		else
-			edit_en = report.content;
-			
+			edit_en = report.content;	
 			
 		if (report.content.includes("Coerthas Central Highlands"))
 			edit_de = report.content.replace(/Coerthas Central Highlands/gi, "Zentrales Hochland von Coerthas");
@@ -673,25 +478,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Zentrales Hochland von Coerthas/gi, "Hautes terres du Coerthas central");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("Coerthas Western Highlands") || report.content.includes("Westliches Hochland von Coerthas") || report.content.includes("Hautes terres du Coerthas occidental")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("Coerthas Western Highlands") || report.content.includes("Westliches Hochland von Coerthas") || report.content.includes("Hautes terres du Coerthas occidental"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Westliches Hochland von Coerthas"))
 			edit_en = report.content.replace(/Westliches Hochland von Coerthas/gi, "Coerthas Western Highlands");
@@ -699,8 +490,7 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Hautes terres du Coerthas occidental/gi, "Coerthas Western Highlands");
 		else
 			edit_en = report.content;
-			
-			
+				
 		if (report.content.includes("Coerthas Western Highlands"))
 			edit_de = report.content.replace(/Coerthas Western Highlands/gi, "Westliches Hochland von Coerthas");
 		else if (report.content.includes("Hautes terres du Coerthas occidental"))
@@ -714,25 +504,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Westliches Hochland von Coerthas/gi, "Hautes terres du Coerthas occidental");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Churning Mists") || report.content.includes("Wallende Nebel") || report.content.includes("L'Écume des cieux de Dravania")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Churning Mists") || report.content.includes("Wallende Nebel") || report.content.includes("L'Écume des cieux de Dravania"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Wallende Nebel"))
 			edit_en = report.content.replace(/Wallende Nebel/gi, "The Churning Mists");
@@ -740,7 +516,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/L'Écume des cieux de Dravania/gi, "The Churning Mists");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Churning Mists"))
 			edit_de = report.content.replace(/The Churning Mists/gi, "Wallende Nebel");
@@ -755,25 +530,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Wallende Nebel/gi, "L'Écume des cieux de Dravania");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Dravanian Hinterlands") || report.content.includes("Dravanisches Hinterland") || report.content.includes("Arrière-pays dravanien")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Dravanian Hinterlands") || report.content.includes("Dravanisches Hinterland") || report.content.includes("Arrière-pays dravanien"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Dravanisches Hinterland"))
 			edit_en = report.content.replace(/Dravanisches Hinterland/gi, "The Dravanian Hinterlands");
@@ -781,7 +542,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Arrière-pays dravanien/gi, "The Dravanian Hinterlands");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Dravanian Hinterlands"))
 			edit_de = report.content.replace(/The Dravanian Hinterlands/gi, "Dravanisches Hinterland");
@@ -796,25 +556,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Dravanisches Hinterland/gi, "Arrière-pays dravanien");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Dravanian Forelands") || report.content.includes("Dravanisches Vorland") || report.content.includes("Avant-pays dravanien")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Dravanian Forelands") || report.content.includes("Dravanisches Vorland") || report.content.includes("Avant-pays dravanien"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Dravanisches Vorland"))
 			edit_en = report.content.replace(/Dravanisches Vorland/gi, "The Dravanian Forelands");
@@ -822,7 +568,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Avant-pays dravanien/gi, "The Dravanian Forelands");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Dravanian Forelands"))
 			edit_de = report.content.replace(/The Dravanian Forelands/gi, "Dravanisches Vorland");
@@ -837,25 +582,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Dravanisches Vorland/gi, "Avant-pays dravanien");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Sea of Clouds") || report.content.includes("Abalathisches Wolkenmeer") || report.content.includes("L'Écume des cieux d'Abalathia")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Sea of Clouds") || report.content.includes("Abalathisches Wolkenmeer") || report.content.includes("L'Écume des cieux d'Abalathia"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Abalathisches Wolkenmeer"))
 			edit_en = report.content.replace(/Abalathisches Wolkenmeer/gi, "The Sea of Clouds");
@@ -863,7 +594,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/L'Écume des cieux d'Abalathia/gi, "The Sea of Clouds");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Sea of Clouds"))
 			edit_de = report.content.replace(/The Sea of Clouds/gi, "Abalathisches Wolkenmeer");
@@ -878,25 +608,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Abalathisches Wolkenmeer/gi, "L'Écume des cieux d'Abalathia");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Ruby Sea") || report.content.includes("Rubinsee") || report.content.includes("Mer de Rubis")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Ruby Sea") || report.content.includes("Rubinsee") || report.content.includes("Mer de Rubis"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Rubinsee"))
 			edit_en = report.content.replace(/Rubinsee/gi, "The Ruby Sea");
@@ -904,7 +620,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Mer de Rubis/gi, "The Ruby Sea");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Ruby Sea"))
 			edit_de = report.content.replace(/The Ruby Sea/gi, "Rubinsee");
@@ -919,25 +634,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Rubinsee/gi, "Mer de Rubis");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Azim Steppe") || report.content.includes("Azim-Steppe") || report.content.includes("Steppe d'Azim")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Azim Steppe") || report.content.includes("Azim-Steppe") || report.content.includes("Steppe d'Azim"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Azim-Steppe"))
 			edit_en = report.content.replace(/Azim-Steppe/gi, "The Azim Steppe");
@@ -945,7 +646,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Steppe d'Azim/gi, "The Azim Steppe");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Azim Steppe"))
 			edit_de = report.content.replace(/The Azim Steppe/gi, "Azim-Steppe");
@@ -960,25 +660,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Azim-Steppe/gi, "Steppe d'Azim");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Peaks") || report.content.includes("Die Zinnen") || report.content.includes("Les Pics")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Peaks") || report.content.includes("Die Zinnen") || report.content.includes("Les Pics"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Die Zinnen"))
 			edit_en = report.content.replace(/Die Zinnen/gi, "The Peaks");
@@ -986,7 +672,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Les Pics/gi, "The Peaks");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Peaks"))
 			edit_de = report.content.replace(/The Peaks/gi, "Die Zinnen");
@@ -1001,25 +686,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Die Zinnen/gi, "Les Pics");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Lochs") || report.content.includes("Das Fenn") || report.content.includes("Les Lacs")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Lochs") || report.content.includes("Das Fenn") || report.content.includes("Les Lacs"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Das Fenn"))
 			edit_en = report.content.replace(/Das Fenn/gi, "The Lochs");
@@ -1027,7 +698,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Les Lacs/gi, "The Lochs");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Lochs"))
 			edit_de = report.content.replace(/The Lochs/gi, "Das Fenn");
@@ -1042,25 +712,11 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Das Fenn/gi, "Les Lacs");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
-		
-		var embed = new Discord.RichEmbed()
-			.setTitle("Hunt found!")
-			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
-			.setColor(0xFF0000)
-		//report.channel.send("@here");
-		report.channel.send({embed});
 	}
 
-	else if (report.content.includes("The Fringes") || report.content.includes("Abanisches Grenzland") || report.content.includes("Les Marges")) {
-		if(report.author.bot) return; 
-		
-		let user = report.guild.members.get(report.author.id).displayName;
-		let edit_en = "";
-		let edit_de = "";
-		let edit_fr = "";
+	else if (report.content.includes("The Fringes") || report.content.includes("Abanisches Grenzland") || report.content.includes("Les Marges"))
+	{
+		validation = 1;
 		
 		if (report.content.includes("Abanisches Grenzland"))
 			edit_en = report.content.replace(/Abanisches Grenzland/gi, "The Fringes");
@@ -1068,7 +724,6 @@ bot.on("message", report => {
 			edit_en = report.content.replace(/Les Marges/gi, "The Fringes");
 		else
 			edit_en = report.content;
-			
 			
 		if (report.content.includes("The Fringes"))
 			edit_de = report.content.replace(/The Fringes/gi, "Abanisches Grenzland");
@@ -1083,18 +738,52 @@ bot.on("message", report => {
 			edit_fr = report.content.replace(/Abanisches Grenzland/gi, "Les Marges");
 		else
 			edit_fr = report.content;
-			
-			
-		report.delete();
+	}
+
+	if (validation == 1)
+	{
+		validation = 0;
 		
-		var embed = new Discord.RichEmbed()
+		embed = new Discord.RichEmbed()
 			.setTitle("Hunt found!")
 			.addField("Reported by >>> " + user , ":flag_gb: " + edit_en + "\n:flag_de: " + edit_de + "\n:flag_fr: " + edit_fr)
 			.setColor(0xFF0000)
-		//report.channel.send("@here");
+			
+		report.delete();
+		
+		if(report.channel.name == "s-rank" || report.channel.name == "boss-fate")
+			report.channel.send("@here");
+		else if(report.channel.name == "a-rank-lich")
+		{
+			role = report.guild.roles.find(report => report.name === "Lich");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-odin")
+		{
+			role = report.guild.roles.find(report => report.name === "Odin");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-phoenix")
+		{
+			role = report.guild.roles.find(report => report.name === "Phoenix");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-shiva")
+		{
+			role = report.guild.roles.find(report => report.name === "Shiva");
+			report.channel.send(role.toString());
+		}
+		else if(report.channel.name == "a-rank-zodiark")
+		{
+			role = report.guild.roles.find(report => report.name === "Zodiark");
+			report.channel.send(role.toString());
+		}
+		
 		report.channel.send({embed});
+		return;
 	}
 });
+
 
 
 // Region-Maps with Hunt-Spawnpoints
