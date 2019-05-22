@@ -8,6 +8,15 @@ bot.on('ready', () => {
 });
 
 
+// Auto-role New Member
+bot.on('guildMemberAdd', newMember => {
+  console.log('User' + newMember.user.tag + 'has joined the server!');
+
+  let role = newMember.guild.roles.find(newMember => newMember.name === "New Member");
+  newMember.addRole(role);
+});
+
+
 // Hunt-Reports
 bot.on("message", report => {
 	
