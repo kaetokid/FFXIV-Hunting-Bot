@@ -12,8 +12,8 @@ bot.on('ready', () => {
 bot.on('guildMemberAdd', newMember => {
   console.log('User' + newMember.user.tag + 'has joined the server!');
 
-  let role = newMember.guild.roles.find(newMember => newMember.name === "New Member");
-  newMember.addRole(role);
+  let autoRole = newMember.guild.roles.find(newMember => newMember.name === "New Member");
+  newMember.addRole(autoRole);
 });
 
 
@@ -29,7 +29,7 @@ bot.on("message", report => {
 	let edit_de = "";
 	let edit_fr = "";
 	let validation = 0;
-	let embed = new Discord.RichEmbed()
+	let embed;
 	
 	
 	if(report.content.includes("Mor Dhona") || report.content.includes("Azys Lla") || report.content.includes("Yanxia"))
@@ -794,333 +794,385 @@ bot.on("message", report => {
 });
 
 
-
+var prefix = ">";
+var hunt = false;
 // Region-Maps with Hunt-Spawnpoints
 bot.on("message", map =>
 {
-	if(map.channel.name == "test")
+	if(map.channel.name == "hunting_assistant" && prefix == map.content.charAt(0) && map.content.length > 1)
 	{
 		if(map.author.bot) return;
-	
-	
-		if (map.content == ">Mor Dhona")
+
+		
+		let mapOutput = map.content.slice(1)
+		mapOutput = mapOutput.toLowerCase().split(' ');
+		for (var i = 0; i < mapOutput.length; i++)
+			mapOutput[i] = mapOutput[i].charAt(0).toUpperCase() + mapOutput[i].slice(1); 
+		mapOutput = mapOutput.join(' ');
+		
+		let embed;
+		
+		
+		if (mapOutput.toLowerCase() == "mor dhona")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			hunt = true;
+
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/3m2Vhvo.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Central Thanalan" || map.content == ">Zentrales Thanalan" || map.content == ">Thanalan central")
+		else if (mapOutput.toLowerCase() == "central thanalan" || mapOutput.toLowerCase() == "zentrales thanalan" || mapOutput.toLowerCase() == "thanalan central")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/mpeyqjk.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Eastern Thanalan" || map.content == ">Östliches Thanalan" || map.content == ">Thanalan oriental")
+		else if (mapOutput.toLowerCase() == "eastern thanalan" || mapOutput.toLowerCase() == "östliches thanalan" || mapOutput.toLowerCase() == "thanalan oriental")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/PiSleYN.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Northern Thanalan" || map.content == ">Nördliches Thanalan" || map.content == ">Thanalan septentrional")
+		else if (mapOutput.toLowerCase() == "northern thanalan" || mapOutput.toLowerCase() == "nördliches thanalan" || mapOutput.toLowerCase() == "thanalan septentrional")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/gpSqTrv.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Southern Thanalan" || map.content == ">Südliches Thanalan" || map.content == ">Thanalan méridional")
+		else if (mapOutput.toLowerCase() == "southern thanalan" || mapOutput.toLowerCase() == "südliches thanalan" || mapOutput.toLowerCase() == "thanalan méridional")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/9GC5edr.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Western Thanalan" || map.content == ">Westliches Thanalan" || map.content == ">Thanalan occidental")
+		else if (mapOutput.toLowerCase() == "western thanalan" || mapOutput.toLowerCase() == "westliches thanalan" || mapOutput.toLowerCase() == "thanalan occidental")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/KFMRkQX.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">South Shroud" || map.content == ">Südwald" || map.content == ">Forêt du sud")
+		else if (mapOutput.toLowerCase() == "south shroud" || mapOutput.toLowerCase() == "südwald" || mapOutput.toLowerCase() == "forêt du sud")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/35n6lPQ.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">North Shroud" || map.content == ">Nordwald" || map.content == ">Forêt du nord")
+		else if (mapOutput.toLowerCase() == "north shroud" || mapOutput.toLowerCase() == "nordwald" || mapOutput.toLowerCase() == "forêt du nord")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/7SL0gym.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">East Shroud" || map.content == ">Ostwald" || map.content == ">Forêt de l'est")
+		else if (mapOutput.toLowerCase() == "east shroud" || mapOutput.toLowerCase() == "ostwald" || mapOutput.toLowerCase() == "forêt de l'est")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/inMDorM.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Central Shroud" || map.content == ">Tiefer Wald" || map.content == ">Forêt centrale")
+		else if (mapOutput.toLowerCase() == "central shroud" || mapOutput.toLowerCase() == "tiefer wald" || mapOutput.toLowerCase() == "forêt centrale")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/UnXxMS1.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Western La Noscea" || map.content == ">Westliches La Noscea" || map.content == ">Noscea occidentale")
+		else if (mapOutput.toLowerCase() == "eastern la noscea" || mapOutput.toLowerCase() == "westliches la noscea" || map.content == "noscea occidentale")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/RdWeObN.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Upper La Noscea" || map.content == ">Oberes La Noscea" || map.content == ">Haute-Noscea")
+		else if (mapOutput.toLowerCase() == "upper la noscea" || mapOutput.toLowerCase() == "oberes la noscea" || mapOutput.toLowerCase() == "haute-noscea")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/y0brsLf.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Outer La Noscea" || map.content == ">Äußeres La Noscea" || map.content == ">Noscea extérieure")
+		else if (mapOutput.toLowerCase() == "outer la noscea" || mapOutput.toLowerCase() == "äußeres la noscea" || mapOutput.toLowerCase() == "noscea extérieure")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/PSOTCrs.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Middle La Noscea" || map.content == ">Zentrales La Noscea" || map.content == ">Noscea centrale")
+		else if (mapOutput.toLowerCase() == "middle la noscea" || mapOutput.toLowerCase() == "zentrales la noscea" || mapOutput.toLowerCase() == "noscea centrale")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/Pl3Lc2f.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Lower La Noscea" || map.content == ">Unteres La Noscea" || map.content == ">Basse-Noscea")
+		else if (mapOutput.toLowerCase() == "lower la noscea" || mapOutput.toLowerCase() == "unteres la noscea" || mapOutput.toLowerCase() == "basse-noscea")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/jPdsXE2.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Eastern La Noscea" || map.content == ">Östliches La Noscea" || map.content == ">Noscea orientale")
+		else if (mapOutput.toLowerCase() == "eastern la noscea" || mapOutput.toLowerCase() == "östliches la noscea" || mapOutput.toLowerCase() == "noscea orientale")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/zDoE5IR.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Coerthas Central Highlands" || map.content == ">Zentrales Hochland von Coerthas" || map.content == ">Hautes terres du Coerthas central")
+		else if (mapOutput.toLowerCase() == "coerthas central highlands" || mapOutput.toLowerCase() == "zentrales hochland von coerthas" || mapOutput.toLowerCase() == "hautes terres du coerthas central")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/QSHKW98.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Coerthas Western Highlands" || map.content == ">Westliches Hochland von Coerthas" || map.content == ">Hautes terres du Coerthas occidental")
+		else if (mapOutput.toLowerCase() == "coerthas western highlands" || mapOutput.toLowerCase() == "westliches hochland von coerthas" || mapOutput.toLowerCase() == "hautes terres du coerthas occidental")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/C3lvS45.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Churning Mists" || map.content == ">Wallende Nebel" || map.content == "L'Écume des cieux de Dravania")
+		else if (mapOutput.toLowerCase() == "the churning mists" || mapOutput.toLowerCase() == "wallende nebel" || mapOutput.toLowerCase() == "l'écume des cieux de dravania")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/mxI5aeI.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Dravanian Hinterlands" || map.content == ">Dravanisches Hinterland" || map.content == ">Arrière-pays dravanien")
+		else if (mapOutput.toLowerCase() == "the dravanian hinterlands" || mapOutput.toLowerCase() == "dravanisches hinterland" || mapOutput.toLowerCase() == "arrière-pays dravanien")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/LPGK9Lc.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Dravanian Forelands" || map.content == ">Dravanisches Vorland" || map.content == ">Avant-pays dravanien")
+		else if (mapOutput.toLowerCase() == "the dravanian forelands" || mapOutput.toLowerCase() == "dravanisches vorland" || mapOutput.toLowerCase() == "avant-pays dravanien")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/tTq1EeA.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Sea of Clouds" || map.content == ">Abalathisches Wolkenmeer" || map.content == ">L'Écume des cieux d'Abalathia")
+		else if (mapOutput.toLowerCase() == "the sea of clouds" || mapOutput.toLowerCase() == "abalathisches wolkenmeer" || mapOutput.toLowerCase() == "l'écume des cieux d'abalathia")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/ZUZiEsa.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Azys Lla")
+		else if (mapOutput.toLowerCase() == "azys lla")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/Uk4E0Mk.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Ruby Sea" || map.content == ">Rubinsee" || map.content == ">Mer de Rubis")
+		else if (mapOutput.toLowerCase() == "the ruby sea" || mapOutput.toLowerCase() == "rubinsee" || mapOutput.toLowerCase() == "mer de rubis")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/HK2m66j.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Azim Steppe" || map.content == ">Azim-Steppe" || map.content == ">Steppe d'Azim")
+		else if (mapOutput.toLowerCase() == "the azim steppe" || mapOutput.toLowerCase() == "azim-steppe" || mapOutput.toLowerCase() == "steppe d'azim")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/vR1xvEX.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">Yanxia")
+		else if (mapOutput.toLowerCase() == "yanxia")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/iiQhkHE.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Peaks" || map.content == ">Die Zinnen" || map.content == ">Les Pics")
+		else if (mapOutput.toLowerCase() == "the peaks" || mapOutput.toLowerCase() == "die zinnen" || mapOutput.toLowerCase() == "les pics")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/9VHVpkR.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Lochs" || map.content == ">Das Fenn" || map.content == ">Les Lacs")
+		else if (mapOutput.toLowerCase() == "the lochs" || mapOutput.toLowerCase() == "das fenn" || mapOutput.toLowerCase() == "les lacs")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/xAYa0xf.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
 		
-		else if (map.content == ">The Fringes" || map.content == ">Abanisches Grenzland" || map.content == ">Les Marges")
+		else if (mapOutput.toLowerCase() == "the fringes" || mapOutput.toLowerCase() == "abanisches grenzland" || mapOutput.toLowerCase() == "les marges")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + map.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/6mn0Q0Q.png")
 			
-			map.author.send({embed})
 			map.delete();
+			map.author.send({embed});
+			return;
 		}
+		
+		else hunt = true;
+	}
+	
+	else
+	{
+		if(map.author.bot) return;
+		
+		map.delete();
+		map.author.send("You have sent an invalid command!");
+		return;
 	}
 });
 
@@ -1128,67 +1180,729 @@ bot.on("message", map =>
 // Hunt-Spawnpoints
 bot.on("message", hunt =>
 {
-	if(hunt.channel.name == "test")
+	if(hunt == true)
 	{
 		if(hunt.author.bot) return;
-	
-		//var huntMessage = hunt.content;
-		var huntReport = hunt.content;
-		console.log("huntReport : " + huntReport + "\nhunt.content: " + hunt.content);
-		
-		if (huntReport.toLowerCase() == ">agrippa")
-		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + hunt.content.slice(1))
-				.setColor(0x008000)
-				.setImage("https://i.imgtc.com/UUk87Dn.png")
 			
-			hunt.author.send({embed})
+
+		let huntOutput = hunt.content.slice(1)
+		huntOutput = huntOutput.toLowerCase().split(' ');
+		for (var i = 0; i < huntOutput.length; i++)
+			huntOutput[i] = huntOutput[i].charAt(0).toUpperCase() + huntOutput[i].slice(1); 
+		huntOutput = huntOutput.join(' ');
+		
+		let embed;
+		
+		
+		if (huntOutput.toLowerCase() == "croque-mitaine" || huntOutput.toLowerCase() == "croque mitaine" || huntOutput.toLowerCase() == "croque")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/0oN74EN.png")
+			
 			hunt.delete();
+			hunt.author.send({embed})
+			return;
 		}
 		
-		else if (hunt.content == ">Kurrea")
+		else if (huntOutput.toLowerCase() == "vogaal ja" || huntOutput.toLowerCase() == "vogaal")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + hunt.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
-				.setImage("https://i.imgtc.com/8qUFCS3.png")
+				.setImage("https://i.imgtc.com/0udtZ1G.png")
 			
-			hunt.author.send({embed})
 			hunt.delete();
+			hunt.author.send({embed})
+			return;
 		}
 		
-		else if (hunt.content == ">Leech King" || hunt.content == ">Egelkönig")
+		else if (huntOutput.toLowerCase() == "croakadile" || huntOutput.toLowerCase() == "quakquak" || huntOutput.toLowerCase() == "croabéros")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + hunt.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
-				.setImage("https://i.imgtc.com/JQfNhCQ.png")
+				.setImage("https://i.imgtc.com/n13uVZY.png")
 			
-			hunt.author.send({embed})
 			hunt.delete();
+			hunt.author.send({embed})
+			return;
 		}
 		
-		else if (hunt.content == ">Brontes")
+		else if (huntOutput.toLowerCase() == "unktehi")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + hunt.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/MPx1nTN.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "the garlok" || huntOutput.toLowerCase() == "garlok")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/iL7LloL.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "hellsclaw" || huntOutput.toLowerCase() == "höllenklaue" || huntOutput.toLowerCase() == "griffe des enfers magitek" || huntOutput.toLowerCase() == "griffe")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/xXaAoPe.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "bonnacon")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/HjFfqP3.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "nahn")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/aDNjIkZ.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "nandi")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/nfVNEUB.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "marberry")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/GxBeAEd.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "chernobog" || huntOutput.toLowerCase() == "czernobog")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/MONOz2f.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "cornu")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/y0s1HzZ.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "laideronnette" || huntOutput.toLowerCase() == "laideronette")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/Xk1zx9l.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "forneus")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/fwF8ERR.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "wulgaru")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/jnyrFgT.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "melt" || huntOutput.toLowerCase() == "schmelze" || huntOutput.toLowerCase() == "fondu")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/39x7nBl.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "mindflayer" || huntOutput.toLowerCase() == "seelenbrenner" || huntOutput.toLowerCase() == "flagelleur mental" || huntOutput.toLowerCase() == "flagelleur")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/TahxKS1.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "ghede ti malice" || huntOutput.toLowerCase() == "ghede titus häme"  || huntOutput.toLowerCase() == "guédé ti-malice" || huntOutput.toLowerCase() == "ghede" || huntOutput.toLowerCase() == "guédé")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/lCVmHfi.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "thousand-cast theda" || huntOutput.toLowerCase() == "tausendzahn theda" || huntOutput.toLowerCase() == "theda la tripoteuse" || huntOutput.toLowerCase() == "theda")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/C43tX6R.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "girtab")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/dCFeOdU.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "zona seeker" || huntOutput.toLowerCase() == "zona sucher" || huntOutput.toLowerCase() == "zona")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/mQyK2yf.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "alectryon")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/z7sXJ8F.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "brontes")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/UnXl3tH.png")
 			
-			hunt.author.send({embed})
 			hunt.delete();
+			hunt.author.send({embed})
+			return;
 		}
 		
-		else if (hunt.content.startsWith(">sabotender") || hunt.content.startsWith(">Pampa"))
+		else if (huntOutput.toLowerCase() == "sabotender bailarina" || huntOutput.toLowerCase() == "pampa ballerine" || huntOutput.toLowerCase() == "sabotender" || huntOutput.toLowerCase() == "pampa")
 		{
-			var embed = new Discord.RichEmbed()
-				.setTitle("Hunt Map: " + hunt.content.slice(1))
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
 				.setImage("https://i.imgtc.com/sXdlAlt.png")
 			
-			hunt.author.send({embed})
 			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "lampalagua" || huntOutput.toLowerCase() == "balaur")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/VqhUD6r.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "maahes")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/ccgbN4c.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "nunyunuwi")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/nX90vyL.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "zanig'oh" || huntOutput.toLowerCase() == "zanig")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/CsWwku3.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "minhocao")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/CDCGu6U.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "dalvag's final flame" || huntOutput.toLowerCase() == "letzte flamme dalvags" || huntOutput.toLowerCase() == "dernière flamme de dalvag" || huntOutput.toLowerCase() == "dalvag")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/yZbue5K.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "agrippa the mighty" || huntOutput.toLowerCase() == "agrippa")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/UUk87Dn.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "kurrea")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/8qUFCS3.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "safat")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/jMTdMKx.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "marraco")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/5XPWlH6.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "kaiser behemoth" || huntOutput.toLowerCase() == "kaiser-behemoth" || huntOutput.toLowerCase() == "béhémoth empereur" || huntOutput.toLowerCase() == "behemoth" || huntOutput.toLowerCase() == "béhémoth")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/1vKO0JE.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "mirka" || huntOutput.toLowerCase() == "lyuba")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/lqwPl59.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "gandarewa" || huntOutput.toLowerCase() == "gandalva" || huntOutput.toLowerCase() == "gandharva")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/p0KWnBT.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "bune" || huntOutput.toLowerCase() == "agathos")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/YEmpSXA.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "senmurv" || huntOutput.toLowerCase() == "simurgh" || huntOutput.toLowerCase() == "sênmurw")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/tQVlu2D.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "pylraster" || huntOutput.toLowerCase() == "xhauron" || huntOutput.toLowerCase() == "pirlasta" || huntOutput.toLowerCase() == "lord of the wyverns" || huntOutput.toLowerCase() == "wyvern-lord" || huntOutput.toLowerCase() == "seigneur des wyvernes" || huntOutput.toLowerCase() == "wyvern")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/cuLErNi.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "the pale rider" || huntOutput.toLowerCase() == "bleicher reiter" || huntOutput.toLowerCase() == "cavalier pâle" || huntOutput.toLowerCase() == "rider" || huntOutput.toLowerCase() == "reiter" || huntOutput.toLowerCase() == "cavalier")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/Y69m17H.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "stolas" || huntOutput.toLowerCase() == "slipkinx steeljoints" || huntOutput.toLowerCase() == "rutschfix stahlscharnier" || huntOutput.toLowerCase() == "slipkinx joints-d'acier" || huntOutput.toLowerCase() == "slipkinx" || huntOutput.toLowerCase() == "rutschfix")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/9ThXLRx.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "leucrotta")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/FKTnlcp.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "campacti" || huntOutput.toLowerCase() == "stench blossom" || huntOutput.toLowerCase() == "pestwurz" || huntOutput.toLowerCase() == "fleur nauséabonde" || huntOutput.toLowerCase() == "stench" || huntOutput.toLowerCase() == "fleur")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/EdaIftz.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "bird of paradise" || huntOutput.toLowerCase() == "paradiesvogel" || huntOutput.toLowerCase() == "oiseau de paradis" || huntOutput.toLowerCase() == "paradise" || huntOutput.toLowerCase() == "paradis")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/fqFMJZq.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "sisiutl" || huntOutput.toLowerCase() == "enkelados" || huntOutput.toLowerCase() == "engedoras" || huntOutput.toLowerCase() == "enkélados")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/lFlWOrA.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "salt and light" || huntOutput.toLowerCase() == "salzlicht" || huntOutput.toLowerCase() == "salaclux" || huntOutput.toLowerCase() == "salt")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/1Zee4RA.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "mahisha" || huntOutput.toLowerCase() == "luminare")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/BCwWHco.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "udumbara")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/hfm1lEx.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "orcus" || huntOutput.toLowerCase() == "erle")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/1LrMJ9l.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "bone crawler" || huntOutput.toLowerCase() == "knochenkriecher" || huntOutput.toLowerCase() == "mangeur d'os" || huntOutput.toLowerCase() == "bone" || huntOutput.toLowerCase() == "mangeur")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/qIYyQpr.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "vochstein" || huntOutput.toLowerCase() == "aqrabuamelu")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/x3CqhLq.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "orghana")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/tzrfRth.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "girimekhala" || huntOutput.toLowerCase() == "sum")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/XYlb96U.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "okina")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/8oGlsHb.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "oni yumemi" || huntOutput.toLowerCase() == "funa yurei" || huntOutput.toLowerCase() == "yumemi" || huntOutput.toLowerCase() == "yurei")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/VhK65N5.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "gamma")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/QRyiPbp.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		else if (huntOutput.toLowerCase() == "gajasura" || huntOutput.toLowerCase() == "angada")
+		{
+			embed = new Discord.RichEmbed()
+				.setTitle("Hunt Map: " + huntOutput)
+				.setColor(0x008000)
+				.setImage("https://i.imgtc.com/nMFy37e.png")
+			
+			hunt.delete();
+			hunt.author.send({embed})
+			return;
+		}
+		
+		/*else if (hunt.content === ">help")
+		{
+			hunt.author.send("HELP");
+			hunt.delete();
+			return;
+		}*/
+		
+		else
+		{
+			//hunt.author.send("No valid input!\nIf you need a list with all commands, type: >help");
+			hunt.delete();
+			hunt.author.send("You have sent an invalid command!");
+			return;
 		}
 	}
 });
@@ -1202,67 +1916,63 @@ bot.on("message", role =>
 		if(role.author.bot) return;
 		
 		
+		let userRole = "";
+		
 		if (role.content == "+deutsch")
 		{	
 			// \@ROLE to get the id & "mention" has to be allowed
 			//role.member.addRole("575512648117125143");
-			const userRole = role.guild.roles.find("name", "-deutsch-");
+			userRole = role.guild.roles.find("name", "-deutsch-");
 			role.member.addRole(userRole);
 			
 			role.delete();
-			
 			role.author.send("Du hast nun Zugriff auf den deutschen Text-Channel und die deutschen Sprach-Channel.");
 		}
 	
 		else if (role.content == "+english")
 		{
 			//role.member.addRole("575512651879153685");
-			const userRole = role.guild.roles.find("name", "-english-");
+			userRole = role.guild.roles.find("name", "-english-");
 			role.member.addRole(userRole);
 			
 			role.delete();
-			
 			role.author.send("You now have access to the enlgish text-channel and the english voice-channels.");
 		}
 	
 		else if (role.content == "+français" || role.content == "+francais")
 		{
 			//role.member.addRole("575512655201042442");
-			const userRole = role.guild.roles.find("name", "-français-");
+			userRole = role.guild.roles.find("name", "-français-");
 			role.member.addRole(userRole);
 			
 			role.delete();
-			
 			role.author.send("Vous avez maintenant accès au canal de texte français et aux canaux de langue française.");
 		}
 	
 		else if (role.content == "-deutsch")
 		{
-			const userRole = role.guild.roles.find("name", "-deutsch-");
+			userRole = role.guild.roles.find("name", "-deutsch-");
 			role.member.removeRole(userRole);
 			
 			role.delete();
-			
 			role.author.send("You have revoked the language setting.");
 		}
 		
 		else if (role.content == "-english")
 		{
-			const userRole = role.guild.roles.find("name", "-english-");
+			userRole = role.guild.roles.find("name", "-english-");
 			role.member.removeRole(userRole);
 			
 			role.delete();
-			
 			role.author.send("You have revoked the language setting.");
 		}
 		
 		else if (role.content == "-français" || role.content == "-francais")
 		{
-			const userRole = role.guild.roles.find("name", "-français-");
+			userRole = role.guild.roles.find("name", "-français-");
 			role.member.removeRole(userRole);
 			
 			role.delete();
-			
 			role.author.send("You have revoked the language setting.");
 		}
 		
