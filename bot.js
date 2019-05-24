@@ -793,9 +793,10 @@ bot.on("message", report => {
 	}
 });
 
-/*
+
 var prefix = ">";
-var hunt = false;
+var isHunt = false;
+var isCommand = false;
 // Region-Maps with Hunt-Spawnpoints
 bot.on("message", map =>
 {
@@ -815,8 +816,6 @@ bot.on("message", map =>
 		
 		if (mapOutput.toLowerCase() == "mor dhona")
 		{
-			hunt = true;
-
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + mapOutput)
 				.setColor(0x008000)
@@ -1163,10 +1162,14 @@ bot.on("message", map =>
 			return;
 		}
 		
-		else hunt = true;
+		else
+		{	
+			isHunt = true;
+			//return;
+		}
 	}
 	
-	else
+	else if (map.channel.name == "hunting_assistant" && isHunt == false)
 	{
 		if(map.author.bot) return;
 		
@@ -1180,11 +1183,11 @@ bot.on("message", map =>
 // Hunt-Spawnpoints
 bot.on("message", hunt =>
 {
-	if(hunt == true)
+	if(isHunt == true)
 	{
 		if(hunt.author.bot) return;
 			
-
+			
 		let huntOutput = hunt.content.slice(1)
 		huntOutput = huntOutput.toLowerCase().split(' ');
 		for (var i = 0; i < huntOutput.length; i++)
@@ -1196,6 +1199,8 @@ bot.on("message", hunt =>
 		
 		if (huntOutput.toLowerCase() == "croque-mitaine" || huntOutput.toLowerCase() == "croque mitaine" || huntOutput.toLowerCase() == "croque")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1208,6 +1213,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "vogaal ja" || huntOutput.toLowerCase() == "vogaal")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1220,6 +1227,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "croakadile" || huntOutput.toLowerCase() == "quakquak" || huntOutput.toLowerCase() == "croabéros")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1232,6 +1241,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "unktehi")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1244,6 +1255,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "the garlok" || huntOutput.toLowerCase() == "garlok")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1256,6 +1269,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "hellsclaw" || huntOutput.toLowerCase() == "höllenklaue" || huntOutput.toLowerCase() == "griffe des enfers magitek" || huntOutput.toLowerCase() == "griffe")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1268,6 +1283,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "bonnacon")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1280,6 +1297,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "nahn")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1292,6 +1311,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "nandi")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1304,6 +1325,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "marberry")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1316,6 +1339,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "chernobog" || huntOutput.toLowerCase() == "czernobog")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1328,6 +1353,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "cornu")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1340,6 +1367,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "laideronnette" || huntOutput.toLowerCase() == "laideronette")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1352,6 +1381,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "forneus")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1364,6 +1395,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "wulgaru")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1376,6 +1409,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "melt" || huntOutput.toLowerCase() == "schmelze" || huntOutput.toLowerCase() == "fondu")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1388,6 +1423,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "mindflayer" || huntOutput.toLowerCase() == "seelenbrenner" || huntOutput.toLowerCase() == "flagelleur mental" || huntOutput.toLowerCase() == "flagelleur")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1400,6 +1437,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "ghede ti malice" || huntOutput.toLowerCase() == "ghede titus häme"  || huntOutput.toLowerCase() == "guédé ti-malice" || huntOutput.toLowerCase() == "ghede" || huntOutput.toLowerCase() == "guédé")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1412,6 +1451,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "thousand-cast theda" || huntOutput.toLowerCase() == "tausendzahn theda" || huntOutput.toLowerCase() == "theda la tripoteuse" || huntOutput.toLowerCase() == "theda")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1424,6 +1465,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "girtab")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1436,6 +1479,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "zona seeker" || huntOutput.toLowerCase() == "zona sucher" || huntOutput.toLowerCase() == "zona")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1448,6 +1493,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "alectryon")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1460,6 +1507,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "brontes")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1472,6 +1521,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "sabotender bailarina" || huntOutput.toLowerCase() == "pampa ballerine" || huntOutput.toLowerCase() == "sabotender" || huntOutput.toLowerCase() == "pampa")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1484,6 +1535,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "lampalagua" || huntOutput.toLowerCase() == "balaur")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1496,6 +1549,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "maahes")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1508,6 +1563,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "nunyunuwi")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1520,6 +1577,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "zanig'oh" || huntOutput.toLowerCase() == "zanig")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1532,6 +1591,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "minhocao")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1544,6 +1605,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "dalvag's final flame" || huntOutput.toLowerCase() == "letzte flamme dalvags" || huntOutput.toLowerCase() == "dernière flamme de dalvag" || huntOutput.toLowerCase() == "dalvag")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1556,6 +1619,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "agrippa the mighty" || huntOutput.toLowerCase() == "agrippa")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1568,6 +1633,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "kurrea")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1580,6 +1647,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "safat")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1592,6 +1661,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "marraco")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1604,6 +1675,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "kaiser behemoth" || huntOutput.toLowerCase() == "kaiser-behemoth" || huntOutput.toLowerCase() == "béhémoth empereur" || huntOutput.toLowerCase() == "behemoth" || huntOutput.toLowerCase() == "béhémoth")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1616,6 +1689,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "mirka" || huntOutput.toLowerCase() == "lyuba")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1628,6 +1703,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "gandarewa" || huntOutput.toLowerCase() == "gandalva" || huntOutput.toLowerCase() == "gandharva")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1640,6 +1717,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "bune" || huntOutput.toLowerCase() == "agathos")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1652,6 +1731,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "senmurv" || huntOutput.toLowerCase() == "simurgh" || huntOutput.toLowerCase() == "sênmurw")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1664,6 +1745,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "pylraster" || huntOutput.toLowerCase() == "xhauron" || huntOutput.toLowerCase() == "pirlasta" || huntOutput.toLowerCase() == "lord of the wyverns" || huntOutput.toLowerCase() == "wyvern-lord" || huntOutput.toLowerCase() == "seigneur des wyvernes" || huntOutput.toLowerCase() == "wyvern")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1676,6 +1759,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "the pale rider" || huntOutput.toLowerCase() == "bleicher reiter" || huntOutput.toLowerCase() == "cavalier pâle" || huntOutput.toLowerCase() == "rider" || huntOutput.toLowerCase() == "reiter" || huntOutput.toLowerCase() == "cavalier")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1688,6 +1773,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "stolas" || huntOutput.toLowerCase() == "slipkinx steeljoints" || huntOutput.toLowerCase() == "rutschfix stahlscharnier" || huntOutput.toLowerCase() == "slipkinx joints-d'acier" || huntOutput.toLowerCase() == "slipkinx" || huntOutput.toLowerCase() == "rutschfix")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1700,6 +1787,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "leucrotta")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1712,6 +1801,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "campacti" || huntOutput.toLowerCase() == "stench blossom" || huntOutput.toLowerCase() == "pestwurz" || huntOutput.toLowerCase() == "fleur nauséabonde" || huntOutput.toLowerCase() == "stench" || huntOutput.toLowerCase() == "fleur")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1724,6 +1815,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "bird of paradise" || huntOutput.toLowerCase() == "paradiesvogel" || huntOutput.toLowerCase() == "oiseau de paradis" || huntOutput.toLowerCase() == "paradise" || huntOutput.toLowerCase() == "paradis")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1736,6 +1829,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "sisiutl" || huntOutput.toLowerCase() == "enkelados" || huntOutput.toLowerCase() == "engedoras" || huntOutput.toLowerCase() == "enkélados")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1748,6 +1843,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "salt and light" || huntOutput.toLowerCase() == "salzlicht" || huntOutput.toLowerCase() == "salaclux" || huntOutput.toLowerCase() == "salt")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1760,6 +1857,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "mahisha" || huntOutput.toLowerCase() == "luminare")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1772,6 +1871,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "udumbara")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1784,6 +1885,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "orcus" || huntOutput.toLowerCase() == "erle")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1796,6 +1899,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "bone crawler" || huntOutput.toLowerCase() == "knochenkriecher" || huntOutput.toLowerCase() == "mangeur d'os" || huntOutput.toLowerCase() == "bone" || huntOutput.toLowerCase() == "mangeur")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1808,6 +1913,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "vochstein" || huntOutput.toLowerCase() == "aqrabuamelu")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1820,6 +1927,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "orghana")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1832,6 +1941,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "girimekhala" || huntOutput.toLowerCase() == "sum")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1844,6 +1955,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "okina")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1856,6 +1969,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "oni yumemi" || huntOutput.toLowerCase() == "funa yurei" || huntOutput.toLowerCase() == "yumemi" || huntOutput.toLowerCase() == "yurei")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1868,6 +1983,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "gamma")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1880,6 +1997,8 @@ bot.on("message", hunt =>
 		
 		else if (huntOutput.toLowerCase() == "gajasura" || huntOutput.toLowerCase() == "angada")
 		{
+			isHunt = false;
+			
 			embed = new Discord.RichEmbed()
 				.setTitle("Hunt Map: " + huntOutput)
 				.setColor(0x008000)
@@ -1890,8 +2009,19 @@ bot.on("message", hunt =>
 			return;
 		}
 		
+		/*else if (hunt.content === ">help")
+		{
+			isHunt = false;
+			
+			hunt.author.send("HELP");
+			hunt.delete();
+			return;
+		}*/
+		
 		else
 		{
+			isHunt = false;
+			
 			//hunt.author.send("No valid input!\nIf you need a list with all commands, type: >help");
 			hunt.delete();
 			hunt.author.send("You have sent an invalid command!");
@@ -1899,7 +2029,6 @@ bot.on("message", hunt =>
 		}
 	}
 });
-*/
 
 
 // Role-Assignment
