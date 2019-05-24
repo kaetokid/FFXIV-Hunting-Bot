@@ -793,7 +793,7 @@ bot.on("message", report => {
 	}
 });
 
-
+/*
 var prefix = ">";
 var hunt = false;
 // Region-Maps with Hunt-Spawnpoints
@@ -1890,13 +1890,6 @@ bot.on("message", hunt =>
 			return;
 		}
 		
-		/*else if (hunt.content === ">help")
-		{
-			hunt.author.send("HELP");
-			hunt.delete();
-			return;
-		}*/
-		
 		else
 		{
 			//hunt.author.send("No valid input!\nIf you need a list with all commands, type: >help");
@@ -1906,6 +1899,7 @@ bot.on("message", hunt =>
 		}
 	}
 });
+*/
 
 
 // Role-Assignment
